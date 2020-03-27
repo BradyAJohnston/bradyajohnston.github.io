@@ -1,16 +1,19 @@
 ---
 layout: page
-title: About me
-subtitle: Why you'd want to go on a date with me
+title: Brady Johnston
+subtitle: Who am I and what am I doing here?
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+I’m a PhD student in structural biology of RNA binding proteins. My passion is data visualisation, both great looking and informative figures but also 3D visusalisation of complex biological topics.
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+I’m good at: 
+- Data wrangling and visualiasation in R
+- Taking biological data into Blender 
+- Doing something else surely
 
-What else do you need?
 
-### my history
+What else is there to say?
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+### Got a cool idea for a project? 
+
+Lets do some science.
