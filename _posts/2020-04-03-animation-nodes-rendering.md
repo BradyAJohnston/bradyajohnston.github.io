@@ -18,7 +18,7 @@ This results in:
 The final solution worked like this for rendering on my windows machine: 
 
 ``` cmd
-FOR /L %G IN (1,1,250) DO _C:\pathto\blender.exe_ -b _C:\pathto\blendfile.blend_ -o _C:\pathto\frames__ -f %G 
+FOR /L %G IN (1,1,250) DO C:\pathto\blender.exe -b C:\pathto\blendfile.blend -o C:\pathto\frames_ -f %G 
 ```
 Which wrote frames_0001.png, frames_0002.png _etc_. 
 
