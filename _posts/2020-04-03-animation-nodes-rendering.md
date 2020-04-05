@@ -24,4 +24,6 @@ Which wrote frames_0001.png, frames_0002.png _etc_.
 
 Seemed to work without trouble, yielding this final animation once composited.
 
-![Bacterial RNA polymerase at work](https://gfycat.com/violetcreamyhydatidtapeworm "Bacterial RNA polymerase at work")
+_I can't embed html5 image so this gif will have to do, sorry for slow load times._
+
+![Bacterial RNA polymerase at work](/img/rnapol.gif "Bacterial RNA polymerase at work")
