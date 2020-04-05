@@ -1,4 +1,4 @@
-# Animation Nodes and Rendering
+# Working around the crashes
 Wanting to test out a nucleic-acid generator I created in Animation nodes, I spent a bit of time putting together a test scene (bacterial RNA polymerase synthesising some RNA from DNA template).
 
 Having set up a scene, done the math and gotten things working I was ready to try out rendering the scene. Unfortunately there are a few problems with rendering using Animation Nodes, and after rendering 1-3 frames Blender would crash.
@@ -15,11 +15,13 @@ This results in:
 3. Render the specified frame
 4. Save image and quit blender
 
-The final solution worked like this: 
+The final solution worked like this for rendering on my windows machine: 
 
-``` bash
+``` cmd
 FOR /L %G IN (1,1,250) DO _C:\pathto\blender.exe_ -b _C:\pathto\blendfile.blend_ -o _C:\pathto\frames__ -f %G 
 ```
 Which wrote frames_0001.png, frames_0002.png _etc_. 
 
 Seemed to work without trouble, yielding this final animation once composited.
+
+![Bacterial RNA polymerase at work](https://gfycat.com/violetcreamyhydatidtapeworm "Bacterial RNA polymerase at work")
