@@ -1,4 +1,9 @@
 # Working around the crashes
+
+![Pixel art RNA polymerase moving along DNA. Created from the same scene described below, rendered in the same method using cmd.](/img/pixel_rna_pol.gif "Pixel art RNA polymerase")
+
+_Some pixel art of the results._ 
+
 Wanting to test out a nucleic-acid generator I created in Animation nodes, I spent a bit of time putting together a test scene (bacterial RNA polymerase synthesising some RNA from DNA template).
 
 Having set up a scene, done the math and gotten things working I was ready to try out rendering the scene. Unfortunately there are a few problems with rendering using Animation Nodes, and after rendering 1-3 frames Blender would crash.
@@ -20,7 +25,7 @@ The final solution worked like this for rendering on my windows machine:
 ``` cmd
 FOR /L %G IN (1,1,250) DO C:\pathto\blender.exe -b C:\pathto\blendfile.blend -o C:\pathto\frames_ -f %G 
 ```
-Which wrote frames_0001.png, frames_0002.png _etc_. 
+Which wrote frames_0001.png, frames_0002.png _etc_ up to frame 250. 
 
 Seemed to work without trouble, yielding this final animation once composited.
 
