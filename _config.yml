@@ -21,8 +21,9 @@ description: Virtual home for for my various endeavours.
 # List of links in the navigation bar
 navbar-links:
   About Me: "aboutme"
-  YouTube: "https://www.youtube.com/bradyjohnston"
+  Blog Posts: "https://bradyajohnston.GitHub.io"
   Twitter: "https://twitter.com/bradyajohnston"
+  YouTube: "https://www.youtube.com/bradyjohnston"
   Resources:
     - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
     - Learn markdown: "http://www.markdowntutorial.com/"
