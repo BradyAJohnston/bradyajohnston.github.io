@@ -1,5 +1,5 @@
 ---
-title: "Processing_FRET_plate"
+title: "Processing FRETplate"
 author: "Brady Johnston"
 date: "12/05/2020"
 output:
