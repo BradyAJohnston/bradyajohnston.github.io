@@ -5,9 +5,10 @@ subtitle: Curriculum vitae
 ---
 
 -------------------     ----------------------------
-Perth               brady.johnston@research.uwa.edu.au  
-Australia                              @bradyajohnston  
-
+PhD Student, [Bond Lab](http://bondxray.org/)
+brady.johnston@research.uwa.edu.au  
+t: @bradyajohnston  
+Perth, Australia
 -------------------     ----------------------------
 
 Education
@@ -26,6 +27,12 @@ _Regulation of NEAT1 isoform levels using a synthetic pentatricopeptide repeat p
 2013-2015  
 **BSc, Biochemistry and Molecular Biology**  
 The University of Western Australia (Perth)
+
+Lab Skills
+----------
+
+
+
 
 _Past this point is template_
 ----------
