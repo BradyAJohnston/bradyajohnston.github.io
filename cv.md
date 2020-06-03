@@ -4,12 +4,12 @@ title: Brady Johnston
 subtitle: Curriculum vitae
 ---
 
--------------------     ----------------------------
-PhD Student, [Bond Lab](http://bondxray.org/)
+-------------------   
+PhD Student, [Bond Lab](http://bondxray.org/)  
 brady.johnston@research.uwa.edu.au  
 t: @bradyajohnston  
-Perth, Australia
--------------------     ----------------------------
+Perth, Australia  
+-------------------
 
 Education
 ---------
