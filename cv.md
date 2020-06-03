@@ -5,40 +5,29 @@ subtitle: Curriculum vitae
 ---
 
 -------------------     ----------------------------
-Perth                        brady.johnston@research.uwa.edu.au
-Australia                          @bradyajohnston
+Perth             brady.johnston@research.uwa.edu.au
+Australia                            @bradyajohnston
+
 -------------------     ----------------------------
 
 Education
 ---------
 
 2017-Current
-:   **PhD, Structural Biology**
-
+**PhD, Structural Biology**
 The University of Western Australia (Perth)
-
-
-Thesis: _Investigating the use of designer pentatricopeptide repeat proteins as molecular tools._
-
-
+_Investigating the use of designer pentatricopeptide repeat proteins as molecular tools._
 
 2016-2016
-
 **First Class Honours in Structural Biology**
-
 University of Western Australia (Perth)
-
-Thesis: _Regulation of NEAT1 isoform levels using a synthetic pentatricopeptide repeat protein._
-
+_Regulation of NEAT1 isoform levels using a synthetic pentatricopeptide repeat protein._
 
 2013-2015
-
 **BSc, Biochemistry and Molecular Biology**
-
 The University of Western Australia (Perth)
 
-
-Experience
+_Past this point is template_
 ----------
 
 **Your Most Recent Work Experience:**
