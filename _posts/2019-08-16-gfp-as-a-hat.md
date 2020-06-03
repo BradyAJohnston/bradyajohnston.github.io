@@ -1,5 +1,6 @@
 ---
 title: GFP As a Hat
+subtitle: The latest in fluorescent fashion.
 ---
 
 As I was drifting off to sleep one night, the thought hit me:
@@ -21,7 +22,7 @@ As for how it was done, I won’t go into too much detail but the basics was thi
 * Import into [Blender](https://blender.org) to clean up the geometry (remove overlapping vertices) and combine to single .obj object.
 * Create green .png file to act as the colour texture, save next to .obj file.
 * Use the apple `usdzconvert` supplied with xcode11 to do the following
-```{bash}
+```
 usdzconvert gfp.obj gfp.usdz -color_map green.png
 
 ```
