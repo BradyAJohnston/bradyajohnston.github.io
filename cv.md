@@ -13,19 +13,19 @@ Australia                            @bradyajohnston
 Education
 ---------
 
-2017-Current//
-**PhD, Structural Biology**\\
-The University of Western Australia (Perth)\
+2017-Current/
+**PhD, Structural Biology**/
+The University of Western Australia (Perth)/
 _Investigating the use of designer pentatricopeptide repeat proteins as molecular tools._
 
-2016-2016\
-**First Class Honours in Structural Biology**\
-University of Western Australia (Perth)\
+2016-2016/
+**First Class Honours in Structural Biology**/
+University of Western Australia (Perth)/
 _Regulation of NEAT1 isoform levels using a synthetic pentatricopeptide repeat protein._
 
-2013-2015\
-**BSc, Biochemistry and Molecular Biology**\
-The University of Western Australia (Perth)\
+2013-2015/
+**BSc, Biochemistry and Molecular Biology**/
+The University of Western Australia (Perth)
 
 _Past this point is template_
 ----------
