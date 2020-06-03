@@ -31,25 +31,25 @@ The University of Western Australia (Perth)
 Presentations
 ----------
 
-*Lorne Proteins 2020 (Student Poster Prize)*  
+**Lorne Proteins 2020 (Student Poster Prize)**  
 Poster presenting initial results from biophysical characterisation of PPR proteins using smFRET and other techniques.
 
-*ASBMB 2019 (Student Poster Prize)*
+**ASBMB 2019 (Student Poster Prize)**
 Poster presenting initial results from biophysical characterisation of PPR proteins using bulk-FRET and other single-molecule FRET techniques.
 
-*International RNA Society – June 2019*
+**International RNA Society – June 2019**
 Poster presenting crystallographic analysis and FRET results of PPR proteins interacting with RNA.
 
-*Lorne Proteins – Feb 2019*
+**Lorne Proteins – Feb 2019**
 Poster presenting initial results of FRET on PPR proteins.
 
-*Perth RNA Salon – April 2018*
+**Perth RNA Salon – April 2018**
 Talk presenting current understanding and future directions for designer RNA binding proteins and their applications to RNA research.
 
-*SCANZ – Crystal31 – December 2017 (Student Poster Prize)*
+**SCANZ – Crystal31 – December 2017 (Student Poster Prize)**
 Poster presentation of results regarding structural characteristics of designer RNA binding proteins.
 
-*School of Molecular Sciences Postgraduate Symposium – June 2017 (Student Talk Award)*
+**School of Molecular Sciences Postgraduate Symposium – June 2017 (Student Talk Award)**
 Investigating the use of designer PPR proteins as molecular tools.
 
 
