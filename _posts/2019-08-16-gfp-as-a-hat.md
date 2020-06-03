@@ -1,6 +1,10 @@
-As I was drifting off to sleep one night, the though hi me:
->"_People love face filters, people love GFP, what if we combined the two?_"
->> - My brain, late at night.
+---
+title: GFP As a Hat
+---
+
+As I was drifting off to sleep one night, the thought hit me:
+>"_People love face filters, people love GFP, what if we combined the two?_"  
+> My brain, late at night.
 
 
 The next morning I had a quick look around and wasn’t able to find any evidence of anyone doing anything before. There has been a bit of effort into making AR protein apps and experiences, but we have all of these 3D models from all of the structural information that biology gathers, but nobody has put it into an instagram filter yet?
