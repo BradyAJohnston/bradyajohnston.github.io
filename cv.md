@@ -5,8 +5,8 @@ subtitle: Curriculum vitae
 ---
 
 -------------------     ----------------------------
-Perth             brady.johnston@research.uwa.edu.au
-Australia                            @bradyajohnston
+Perth               brady.johnston@research.uwa.edu.au  
+Australia                              @bradyajohnston  
 
 -------------------     ----------------------------
 
