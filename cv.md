@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Brady Johnston
-subtitle: _Curriculum vitae_
+subtitle: Curriculum vitae
 ---
 
 -------------------     ----------------------------
@@ -13,19 +13,30 @@ Education
 ---------
 
 2017-Current
-:   **PhD, Structural Biology**; The University of Western Australia (Perth);
+:   **PhD, Structural Biology**
+
+The University of Western Australia (Perth)
+
+
 Thesis: _Investigating the use of designer pentatricopeptide repeat proteins as molecular tools._
 
-    *Thesis title: Deep Learning Approaches to the Self-Awesomeness
-     Estimation Problem*
+
+
 2016-2016
-:   **First Class Honours in Structural Biology**; University of Western Australia (Perth) ; Thesis: _Regulation of NEAT1 isoform levels using a synthetic pentatricopeptide repeat protein._
+
+**First Class Honours in Structural Biology**
+
+University of Western Australia (Perth)
+
+Thesis: _Regulation of NEAT1 isoform levels using a synthetic pentatricopeptide repeat protein._
+
 
 2013-2015
-:   **BSc, Biochemistry and Molecular Biology**; University of
-    Western Australia (Perth)
 
-    *Minor: Awesomeology*
+**BSc, Biochemistry and Molecular Biology**
+
+The University of Western Australia (Perth)
+
 
 Experience
 ----------
