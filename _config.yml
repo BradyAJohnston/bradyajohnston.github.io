@@ -26,7 +26,7 @@ navbar-links:
     - Twitter: "https://twitter.com/bradyajohnston"
     - YouTube: "https://www.youtube.com/bradyjohnston"
     - Instagram: "https://instagram.com/bunchofbradys"
-  #CV: "cv"
+  CV: "cv"
   Resources:
     - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
     - Learn markdown: "http://www.markdowntutorial.com/"
