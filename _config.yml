@@ -22,8 +22,10 @@ description: Virtual home for for my various endeavours.
 navbar-links:
   About Me: "aboutme"
   Blog Posts: "https://bradyajohnston.GitHub.io"
-  Twitter: "https://twitter.com/bradyajohnston"
-  YouTube: "https://www.youtube.com/bradyjohnston"
+  Socials:
+    - Twitter: "https://twitter.com/bradyajohnston"
+    - YouTube: "https://www.youtube.com/bradyjohnston"
+    - Instagram: "https://instagram.com/bunchofbradys"
   #CV: "cv"
   Resources:
     - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
@@ -82,7 +84,7 @@ social-network-links:
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
   instagram: bunchofbradys
-#  youtube: user/deanat78
+  youtube: user/bradyajohnston
 #  spotify: yourname
 #  telephone: +14159998888
 #  steam: deanat78
