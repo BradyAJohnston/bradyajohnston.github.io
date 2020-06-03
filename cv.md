@@ -6,9 +6,9 @@ subtitle: Curriculum vitae
 
 -------------------   
 PhD Student, [Bond Lab](http://bondxray.org/)  
+The University of Western Australia, Perth, Australia  
 brady.johnston@research.uwa.edu.au  
-t: @bradyajohnston  
-Perth, Australia  
+[@bradyajohnston](twitter.com/bradyajohnston)
 -------------------
 
 Education
