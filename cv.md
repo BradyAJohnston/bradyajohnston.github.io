@@ -13,8 +13,8 @@ Australia                            @bradyajohnston
 Education
 ---------
 
-2017-Current\
-**PhD, Structural Biology**\
+2017-Current//
+**PhD, Structural Biology**\\
 The University of Western Australia (Perth)\
 _Investigating the use of designer pentatricopeptide repeat proteins as molecular tools._
 
