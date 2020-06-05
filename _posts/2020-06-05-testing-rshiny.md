@@ -9,6 +9,6 @@ _Maybe?_
 <html>
 <head><title>Shiny App Iframe</title></head>
 <body>
-<iframe id="example1" src="https://bradyajohnston.shinyapps.io/Binding_Simulation" style="border: none; width: 100%; height: 100%" frameborder="0"></iframe>
+<iframe id="example1" src="https://bradyajohnston.shinyapps.io/Binding_Simulation" style="border: none; width: 1200px; height: 100%" frameborder="0"></iframe>
 </body>
 </html>
