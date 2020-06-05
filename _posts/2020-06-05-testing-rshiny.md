@@ -1,6 +1,7 @@
 ---
 title: Testing out Rshiny app.
 subtitle: Will it embed properly?
+tags: rshiny, R
 ---
 
 # Below will hopefully be an app.
