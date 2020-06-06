@@ -1,3 +1,9 @@
+---
+title: Blender for Biochemists.
+subtitle: Teaching 3D modelling and advanced visualisation techniques to scientists.
+tags: blender, scivis, sciart, youtube
+---
+
 I've started my journey into the realm of youtube.
 
 After promising people at multiple conferences that I might start doing some tutorials on how to get into the very exciting if very intimidating world of 3D modelling, I've finally made the plung.

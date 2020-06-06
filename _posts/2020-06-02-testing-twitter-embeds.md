@@ -1,6 +1,7 @@
 ---
 title: Becoming one with the ETC.
 subtitle: Playing around with face filters for science communication.
+tags: blender, sparkAR, AR, ATP, filter
 ---
 
 # We need ChimeraX
