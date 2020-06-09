@@ -43,6 +43,10 @@ ATOM   9678  CA  GLY   610     143.490  38.100  80.430  1.00  1.00
 ATOM   9681  C   GLY   610     144.370  38.940  79.520  1.00  1.00
 ATOM   9682  O   GLY   610     144.650  40.130  79.960  1.00  1.00
 ATOM   9683  OXT GLY   610     145.010  38.410  78.550  1.00  1.00
+TER
+ENDMDL
 ```
 
 And that was it! easy done. Will definitely be using these a lot more in the future.
+
+Thanks so much to the team behind it [Rodrigues, J. P. G. L. M., Teixeira, J. M. C., Trellet, M. & Bonvin, A. M. J. J.](https://www.biorxiv.org/content/10.1101/483305v1.article-info)
