@@ -2,7 +2,7 @@
 title: Testing some HTML output.
 subtitle: Testing testing, 1,2,3.
 tags: r, rmarkdown, rstudio
-date: 2020-06-18
+date: 2020-07-01
 ---
 
 <html>
