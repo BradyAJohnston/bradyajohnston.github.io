@@ -29,7 +29,7 @@ There was no easy way to render a movie as individual frames, and I needed a for
 save frame001.png transparentBackground true
 ```
 
-This command gives you a saved `.png` file which a transparent background. Now we just need to iterate through all of the states, saving the relevant frame for each state. I played around with the API a bit, but I'm not skilled enough with python yet to get anything working. Instead I went for a simpler, if uglier solution.
+This command gives you a saved `.png` file which a transparent background. Now we just need to iterate through all of the states, saving the relevant frame for each state. I played around with the _API_ a bit, but I'm not skilled enough with python yet to get anything working. Instead I went for a simpler, if uglier solution.
 
 ```
 coordset #4  7
@@ -70,7 +70,7 @@ save frame10.png transparentBackground true
 
 You can then just copy and paste that entire block (for whatever i range you give it) into the command line for ChimeraX and it will render all of the files for you.
 
-Into blender you can import the images as frame, and I then tested out a quick scene in EEVEE. To make the shadows cast correctly you must ensure _Blender Mode_ and _Shadow Mode_ in the shader properties for the plane are set to `Alpha Blender` and `Alpha Clip` respectively.
+Into blender you can import the images as frame, and I then tested out a quick scene in EEVEE. To make the shadows cast correctly you must ensure _Blend Mode_ and _Shadow Mode_ in the shader properties for the plane are set to `Alpha Blend` and `Alpha Clip` respectively.
 
 ![Blende Modes](https://i.imgur.com/wskg5hL.png "Blend Modes")
 
