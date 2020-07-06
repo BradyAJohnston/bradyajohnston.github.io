@@ -5,9 +5,10 @@ tags: r, rmarkdown, rstudio
 date: 2020-07-01
 ---
 
-<html>
-<head><title>Shiny App Iframe</title></head>
-<body>
-<iframe id="Post of analsysi record." src="/html_posts/redo_analysis.html" style="border: none; width: 120%; height: 600px" frameborder="0"></iframe>
-</body>
-</html>
+<div class="box">
+  <iframe src="/html_posts/nobias_plotting_20200706.html" frameborder="0" scrolling="no" width="100%" height="100%" align="left"> </iframe>
+</div>
+
+<div class="box">
+  <iframe src="/html_posts/Untitled.html" frameborder="0" scrolling="no" width="100%" height="100%" align="right"></iframe>
+</div>

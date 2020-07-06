@@ -786,3 +786,11 @@ pre {
   font-style: italic;
   font-size: 16px;
 }
+
+.box{
+    float:left;
+    margin-right:20px;
+}
+.clear{
+    clear:both;
+}
