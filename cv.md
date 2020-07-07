@@ -11,9 +11,11 @@ The University of Western Australia,
 Perth, Australia  
 brady.johnston@research.uwa.edu.au  
 [@bradyajohnston](twitter.com/bradyajohnston)  
+
 ---
 
-Education
+##Education
+
 ---------
 
 2017-Current  
@@ -32,6 +34,8 @@ The University of Western Australia (Perth)
 
 ## Public Talks & Outreach
 
+---
+
 ### Visualising a Virus
 A public talk on behalf of the Faculty of Science at The University of Western Australia. Discussion of viusalisation strategies and the
 need and thought processes behind them and a showcase of some of my own work on the subject.
@@ -46,6 +50,8 @@ animation program [Blender](https:://blender.org) for more visually engaging wor
 A series of sessions on the programming language `R` for data analysis and visualisation. Information can be accessed [here](https://bradyajohnston.github.io/2020-07-07-r-for-biologists/).
 
 ## Academic Presentations
+
+---
 
 **Lorne Proteins 2020 (Student Poster Prize)**  
 Poster presenting initial results from biophysical characterisation of PPR proteins using smFRET and other techniques.
