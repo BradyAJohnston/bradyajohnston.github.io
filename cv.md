@@ -2,15 +2,7 @@
 layout: page
 title: Brady Johnston
 subtitle: Curriculum vitae
-toc:
-  - title: Testing
-    subfolderitems:
-      - page: Things Here?
-        url: https://google.com
-  - title: Another Group
-    subfolderitems:
-      - page: Other things here.
-        url: https://youtube.com
+
 ---
 
 ---
