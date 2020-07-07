@@ -22,14 +22,29 @@ _Investigating the use of designer pentatricopeptide repeat proteins as molecula
 
 2016  
 **First Class Honours in Structural Biology**  
-University of Western Australia (Perth)  
+The University of Western Australia (Perth)  
 _Regulation of NEAT1 isoform levels using a synthetic pentatricopeptide repeat protein._
 
 2013-2015  
 **BSc, Biochemistry and Molecular Biology**  
 The University of Western Australia (Perth)
 
-Presentations
+Public Talks & Outreach
+----------
+## Visualising a Virus
+A public talk on behalf of the Faculty of Science at The University of Western Australia. Discussion of viusalisation strategies and the
+need and thought processes behind them and a showcase of some of my own work on the subject.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7yAnEiY5-JE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Blender for biochemists
+Instructional YouTube series targeted at biochemists and structural biologists, to introduce and teach how to use the 3D modelling and
+animation program [Blender](https:://blender.org) for more visually engaging works.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CfkjBoOaw0g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## R for Biologists
+A series of sessions on the programming language `R` for data analysis and visualisation. Information can be accessed [here](https://bradyajohnston.github.io/2020-07-07-r-for-biologists/).
+
+Academic Presentations
 ----------
 
 **Lorne Proteins 2020 (Student Poster Prize)**  
