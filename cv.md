@@ -2,6 +2,7 @@
 layout: page
 title: Brady Johnston
 subtitle: Curriculum vitae
+toc: TRUE
 ---
 
 ---
