@@ -29,23 +29,22 @@ _Regulation of NEAT1 isoform levels using a synthetic pentatricopeptide repeat p
 **BSc, Biochemistry and Molecular Biology**  
 The University of Western Australia (Perth)
 
-Public Talks & Outreach
-----------
-## Visualising a Virus
+## Public Talks & Outreach
+
+### Visualising a Virus
 A public talk on behalf of the Faculty of Science at The University of Western Australia. Discussion of viusalisation strategies and the
 need and thought processes behind them and a showcase of some of my own work on the subject.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7yAnEiY5-JE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Blender for biochemists
+### Blender for biochemists
 Instructional YouTube series targeted at biochemists and structural biologists, to introduce and teach how to use the 3D modelling and
 animation program [Blender](https:://blender.org) for more visually engaging works.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CfkjBoOaw0g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## R for Biologists
+### R for Biologists
 A series of sessions on the programming language `R` for data analysis and visualisation. Information can be accessed [here](https://bradyajohnston.github.io/2020-07-07-r-for-biologists/).
 
-Academic Presentations
-----------
+## Academic Presentations
 
 **Lorne Proteins 2020 (Student Poster Prize)**  
 Poster presenting initial results from biophysical characterisation of PPR proteins using smFRET and other techniques.
@@ -68,4 +67,4 @@ Poster presentation of results regarding structural characteristics of designer 
 **School of Molecular Sciences Postgraduate Symposium – June 2017 (Student Talk Award)**  
 Investigating the use of designer PPR proteins as molecular tools.
 
-_The rest is yet to come._
+_The rest is a work in progress._
