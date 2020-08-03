@@ -16,7 +16,7 @@ brady.johnston@research.uwa.edu.au
 
 # Education
 
----
+
 
 2017-Current  
 **PhD, Structural Biology**  
@@ -36,7 +36,7 @@ The University of Western Australia (Perth)
 
 # Public Talks & Outreach
 
----
+
 
 ## Particle Podcast
 
@@ -63,7 +63,7 @@ A series of sessions on the programming language `R` for data analysis and visua
 
 # Academic Presentations
 
----
+
 
 **Lorne Proteins 2020 (Student Poster Prize)**  
 Poster presenting initial results from biophysical characterisation of PPR proteins using smFRET and other techniques.
