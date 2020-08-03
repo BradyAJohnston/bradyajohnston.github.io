@@ -57,6 +57,8 @@ animation program [Blender](https:://blender.org) for more visually engaging wor
 ## R for Biologists
 A series of sessions on the programming language `R` for data analysis and visualisation. Information can be accessed [here](https://bradyajohnston.github.io/2020-07-07-r-for-biologists/).
 
+---
+
 # Academic Presentations
 
 ---
