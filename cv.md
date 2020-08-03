@@ -63,15 +63,16 @@ A series of sessions on the programming language `R` for data analysis and visua
 
 # Academic Presentations
 
+**International RNA Society (RNA2020) (Student Poster Prize) - June 2020**
+Poster presenting initial results from biophysical characterisation of PPR proteins using smFRET and other techniques.
 
-
-**Lorne Proteins 2020 (Student Poster Prize)**  
+**Lorne Proteins 2020 (Student Poster Prize) - February 2020**  
 Poster presenting initial results from biophysical characterisation of PPR proteins using smFRET and other techniques.
 
 **ASBMB 2019 (Student Poster Prize)**  
 Poster presenting initial results from biophysical characterisation of PPR proteins using bulk-FRET and other single-molecule FRET techniques.
 
-**International RNA Society – June 2019**  
+**International RNA Society (RNA2019) – June 2019**  
 Poster presenting crystallographic analysis and FRET results of PPR proteins interacting with RNA.
 
 **Lorne Proteins – Feb 2019**  
