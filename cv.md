@@ -14,9 +14,9 @@ brady.johnston@research.uwa.edu.au
 
 ---
 
-## Education
+# Education
 
----------
+---
 
 2017-Current  
 **PhD, Structural Biology**  
@@ -32,24 +32,32 @@ _Regulation of NEAT1 isoform levels using a synthetic pentatricopeptide repeat p
 **BSc, Biochemistry and Molecular Biology**  
 The University of Western Australia (Perth)
 
-## Public Talks & Outreach
+---
+
+# Public Talks & Outreach
 
 ---
 
-### Visualising a Virus
+## Particle Podcast
+
+Interviewed on the Particle Podcast produced via SciTech about scientific visualisation and specifically around the coronavirus, as well as the lab work that I do day to day.
+
+<img src="https://res.cloudinary.com/particle/image/fetch/c_fill,g_auto,f_auto,dpr_auto,w_666,h_400/https://s3-ap-southeast-2.amazonaws.com/particle.com.au/app/uploads/2020/07/08142457/Particle_Podcast_WebImage_Brady_666x400.png" alt="Is a Virus Pretty?" class="podcast__featured-image post__featured-image lazyloaded" data-lazy-src="https://res.cloudinary.com/particle/image/fetch/c_fill,g_auto,f_auto,dpr_auto,w_666,h_400/https://s3-ap-southeast-2.amazonaws.com/particle.com.au/app/uploads/2020/07/08142457/Particle_Podcast_WebImage_Brady_666x400.png" data-was-processed="true">
+
+## Visualising a Virus
 A public talk on behalf of the Faculty of Science at The University of Western Australia. Discussion of viusalisation strategies and the
 need and thought processes behind them and a showcase of some of my own work on the subject.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7yAnEiY5-JE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="187" height="105" src="https://www.youtube.com/embed/7yAnEiY5-JE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Blender for biochemists
+## Blender for biochemists
 Instructional YouTube series targeted at biochemists and structural biologists, to introduce and teach how to use the 3D modelling and
 animation program [Blender](https:://blender.org) for more visually engaging works.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CfkjBoOaw0g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="187" height="105" src="https://www.youtube.com/embed/CfkjBoOaw0g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### R for Biologists
+## R for Biologists
 A series of sessions on the programming language `R` for data analysis and visualisation. Information can be accessed [here](https://bradyajohnston.github.io/2020-07-07-r-for-biologists/).
 
-## Academic Presentations
+# Academic Presentations
 
 ---
 
