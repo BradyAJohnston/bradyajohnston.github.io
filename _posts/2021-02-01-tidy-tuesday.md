@@ -1,6 +1,6 @@
 ---
 title: Visualising Global Rubbish
-subtitle: For #tidytuesday, I visualised where the trash comes from and where it ends up.
+subtitle: For \#tidytuesday, I visualised where the trash comes from and where it ends up.
 tags: tidytuesday, R, data science
 date: 2021-02-01
 ---
