@@ -1,0 +1,62 @@
+---
+title: "r3mol Demo"
+description: |
+  Just a quick demo html file.
+author:
+  - name: Brady Johnston
+    url: https:://bradyajohnston.github.io
+    affiliation: Bond Lab, UWA
+    affiliation_url: https://bondxray.org
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(r3dmol)
+```
+
+## Quickly Previewing a Structure
+
+Below should be an interactive viewer for looking at a PPR repeat. 
+
+Prefacing that is the code required to produce it (_very little_).
+
+```{r, echo = TRUE, results=TRUE}
+model <- "4ozs" %>% 
+  m_glimpse(highlight = m_sel(resi = 2:36))
+
+model
+```
+
+What about just one repeat?
+
+```{r echo = TRUE}
+model <- model %>% 
+  m_set_style(
+    m_style_line(hidden = TRUE), 
+    sel = m_sel(resi = 37:400)
+  ) %>% 
+  m_spin(speed = 0.2)
+
+model
+```
+
+### Labelling the Binding Residues
+
+```{r}
+model %>% 
+  m_add_res_labels(
+    sel = m_sel(resi = c(6, 36))
+  ) %>% 
+  m_add_label(
+    text = "Binding Residues", 
+    sel = m_sel(resi = 6, 36), 
+    m_style_label(backgroundColor = "lightgreen")
+  )
+```
+
+
+
+
