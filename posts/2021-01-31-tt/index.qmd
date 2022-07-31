@@ -1,0 +1,228 @@
+---
+title: "Visualising Global Rubbish"
+date: "2021-01-31"
+author: "Brady Johnston"
+image: "images/paste-166E6C24.png"
+categories: [R, tidytuesday, data vis]
+editor: visual
+eval: false
+---
+
+# Where Rubbish Ends Up
+
+For this week's [#tidytuesday](https://github.com/rfordatascience/tidytuesday), I visualise the vast dataset of rubbish collected on the beaches all over the world.
+
+<video width="100%"  autoplay loop>
+
+<source src="https://video.twimg.com/tweet_video/EtFnI90UUAE5QdB.mp4" type="video/mp4">
+
+</video>
+
+The technical details can be viewed below the embedded tweet.
+
+The data shows the headquarters for each company identified, and the lines show where the trash ended up.
+The more dots that move along the line, the more junk found in those selected companies' locations.
+
+You can play around with the final result at the bottom of this page.
+
+> The post can be seen below.
+
+# TidyTuesday
+
+Join the R4DS Online Learning Community in the weekly #TidyTuesday event!
+Every week we post a raw dataset, a chart or article related to that dataset, and ask you to explore the data.
+While the dataset will be "tamed", it will not always be tidy!
+As such you might need to apply various R for Data Science techniques to wrangle the data into a true tidy format.
+The goal of TidyTuesday is to apply your R skills, get feedback, explore other's work, and connect with the greater #RStats community!
+As such we encourage everyone of all skills to participate!
+
+```{r}
+#| label: setup
+
+library(tidyverse)
+library(tidytuesdayR)
+
+```
+
+# Load the weekly Data
+
+Dowload the weekly data and make available in the `tt` object.
+
+```{r}
+tt <- tt_load("2021-01-26")
+```
+
+# Readme
+
+Take a look at the readme for the weekly data to get insight on the dataset.
+This includes a data dictionary, source, and a link to an article on the data.
+
+```{r}
+
+tt
+
+```
+
+# Glimpse Data
+
+Take an initial look at the format of the data available.
+
+```{r Glimpse}
+
+tt %>% 
+  map(glimpse) 
+
+```
+
+```{r}
+
+tuesdata <- tt
+
+tuesdata$plastics %>% dplyr::filter()
+library(stringi)
+plastics <- tuesdata$plastics %>% 
+  filter(
+    !(parent_company %in% c("Grand Total", "null", "Null", "Unbranded"))
+  ) %>% 
+  mutate(
+    parent_company = parent_company %>% 
+      tolower() %>% 
+      stri_trans_general("Latin-ASCII") %>% 
+      stri_trans_totitle(),
+    country = stringi::stri_trans_totitle(country)
+  ) 
+```
+
+Then, we can get the top five polluters for the three years of analysis (2019-2020)
+
+```{r}
+top_Co <-  plastics %>% 
+  group_by(parent_company) %>% 
+  summarise(
+    country_count = n_distinct(country), 
+    grand_total_sum = sum(grand_total, na.rm = T)
+  ) %>% 
+  arrange(-country_count, -grand_total_sum) %>% 
+  head(5)
+top_Co
+```
+
+Then, we can manually obtain headquarters locations from https://www.crunchbase.com/lists/companies-search-with-headquarters
+
+```{r}
+hq <- c(
+  "Atlanta, Georgia, United States", #Coca-Cola
+  "New York, New York, United States", #PepsiCo
+  "Vevey, Vaud, Switzerland", #Nestle
+  "Mclean, Virginia, United States", #Mars
+  "London, England, United Kingdom" #Unilever
+)
+```
+
+And we merge the data, and add a geocoded lat, long using `tidygeocoder` to finally transform into an sf.
+
+```{r, eval = F}
+library(tidygeocoder)
+coords = geo(hq, method = "osm")
+```
+
+```{r, include = F}
+# To avoid calling the geocoder on each knit
+coords = structure(list(address = c("Atlanta, Georgia, United States", 
+"New York, New York, United States", "Vevey, Vaud, Switzerland", 
+"Mclean, Virginia, United States", "London, England, United Kingdom"), lat = c(33.7489924, 40.7127281, 46.4602978, 38.9342888, 51.5073219), long = c(-84.3902644, -74.0060152, 6.8418655, -77.1776327, -0.1276474)), row.names = c(NA, -5L), class = c("tbl_df", 
+"tbl", "data.frame"))
+```
+
+```{r}
+countries = plastics %>% 
+  filter(parent_company %in% top_Co$parent_company) %>% 
+  group_by(country) %>% 
+  summarise(count = n())
+```
+
+```{r, eval = F}
+coords_countries = geo(countries$country, method = "osm")
+# Get Taiwan coordinates, which was not recognized
+coords_taiwan = geo("Taiwan", method = "osm")
+coords_country = coords_countries %>% 
+  mutate(
+    lat = ifelse(address == "Taiwan_ Republic Of China (Roc)", coords_taiwan$lat, lat),
+    long = ifelse(address == "Taiwan_ Republic Of China (Roc)", coords_taiwan$long, long)
+) 
+```
+
+```{r, include = F}
+coords_country = structure(list(address = c("Argentina", "Australia", "Bangladesh", "Benin", "Brazil", "Bulgaria", "Burkina Faso", "Cameroon", "Canada", "Chile", "China", "Colombia", "Cyprus", "Denmark", "Ecuador", "El Salvador", "Empty", "France", "Germany", "Ghana", "Greece", "Honduras", "Hong Kong", "India", "Indonesia", "Ireland", "Italy", "Japan", "Kenya", "Korea", "Kuwait", "Latvia", "Lithuania", "Malaysia", "Maldives", "Mexico", "Montenegro", "Netherlands", "Nigeria", "Peru", "Philippines", "Portugal", "Romania", "Rwanda", "Serbia", "Singapore", "Slovenia", "South Africa", "Spain", "Sri Lanka", "Switzerland", "Taiwan_ Republic Of China (Roc)", "Tanzania", "Thailand", "Togo", "Tunisia", "Turkey", "Ukraine", "United Kingdom Of Great Britain & Northern Ireland", "United States Of America", "Vietnam"), lat = c(-34.9964963, -24.7761086, 24.4768783, 9.5293472, -10.3333333, 42.6073975, 12.0753083, 4.6125522, 61.0666922, -31.7613365, 35.000074, 2.8894434, 34.9823018, 55.670249, -1.3397668, 13.8000382, 39.74962805, 46.603354, 
+51.0834196, 8.0300284, 38.9953683, 15.2572432, 22.2793278, 22.3511148, -2.4833826, 52.865196, 42.6384261, 36.5748441, 1.4419683, 36.638392, 29.2733964, 56.8406494, 55.3500003, 4.5693754, 4.7064352, 22.5000485, 42.9868853, 52.24764975, 9.6000359, -6.8699697, 12.7503486, 40.0332629, 45.9852129, -1.9646631, 44.1534121, 1.357107, 46.14903455, -28.8166236, 39.3260685, 7.5554942, 46.7985624, 23.9739374, -6.5247123, 14.8971921, 8.7800265, 33.8439408, 38.9597594, 49.4871968, 54.7023545, 39.7837304, 13.2904027), long = c(-64.9672817, 134.755, 90.2932426, 2.2584408, -53.2, 25.4856617, -1.6880314, 13.1535811, -107.9917071, -71.3187697, 104.999927, -73.783892, 33.1451285, 10.3333283, -79.3666965, -88.9140683, -104.946658106006, 1.8883335, 10.4234469, -1.0800271, 21.9877132, -86.0755145, 114.1628131, 78.6677428, 117.8902853, -7.9794599, 12.674297, 139.2394179, 38.4313975, 127.6961188, 47.4979476, 24.7537645, 23.7499997, 102.2656823, 73.3287853, -100.0000375, 19.5180992, 5.54124684940616, 7.9999721, -75.0458515, 122.7312101, -7.8896263, 24.6859225, 30.0644358, 20.55144, 103.8194992, 14.6263257533406, 24.991639, -4.8379791, 80.7137847, 8.2319736, 120.9820179, 35.7878438, 100.83273, 1.0199765, 9.400138, 34.9249653, 31.2718321, -3.2765753, -100.4458825, 108.4265113)), row.names = c(NA, -61L), class = c("tbl_df", "tbl", "data.frame"))
+```
+
+### Matching the countries with their lat / long.
+
+```{r}
+countries <- countries %>% 
+  left_join(coords_country,  by = c("country" = "address"))
+countries
+```
+
+### Matching the companies with their lat / long
+
+```{r}
+top_parent_companies = top_Co %>% 
+  mutate(hq = hq, lat = coords$lat, long = coords$long) %>% 
+  # st_as_sf(crs = 4326, coords = c("long", "lat")) %>%
+  mutate(parent_company = case_when(
+    parent_company == "The Coca-Cola Company" ~ "Coca-Cola",
+    parent_company == "Mars, Incorporated" ~ "Mars, Inc.",
+    TRUE ~ parent_company
+  )) %>% 
+  select(name = parent_company) %>% 
+  mutate(type = "Parent Company")
+
+companies <- top_Co %>% 
+  mutate(hq = hq, com_lat = coords$lat, com_long = coords$long)
+```
+
+### Joining the countries and the companies into one df.
+
+```{r}
+com_countries <- plastics %>% 
+  select(country, parent_company, grand_total)
+# companies
+plotting <- com_countries %>% 
+  left_join(countries) %>% 
+  left_join(companies) %>% 
+  filter(parent_company %in% companies$parent_company)
+plotting
+```
+
+## Using the joined data for the final plot.
+
+```{r}
+# remotes::install_github("JohnCoene/echarts4r.assets")
+
+library(echarts4r)
+library(echarts4r.assets)
+plotting %>% 
+  group_by(parent_company) %>% 
+  e_charts() %>% 
+  e_globe(
+    environment = gray(0.1),
+    base_texture = ea_asset("world"), 
+    shading = 'lambert', 
+    light.ambient = list(intensity = 10)
+  ) %>% 
+  e_lines_3d(
+    com_long, 
+    com_lat, 
+    long, 
+    lat, 
+    value = count,
+    source_name = parent_company, 
+    target_name = country,
+    effect = list(show = TRUE)
+  ) %>% 
+  e_legend_toggle_select(name = "Company") %>% 
+  e_legend(textStyle = list(color = gray(0.9)))
+
+```

@@ -1,0 +1,29 @@
+project:
+  type: website
+  output-dir: "docs"
+
+website:
+  title: "Brady's Blog"
+
+  navbar:
+    right: 
+      - about.qmd
+      - text: "Blog"
+        href: index.qmd
+      - molecular-nodes.qmd
+    left:
+      - icon: github
+        href: https://github.com/bradyajohnston
+      - icon: youtube
+        href: https://youtube.com/c/bradyjohnston
+      - icon: twitter
+        href: https://twitter.com/bradyajohnston
+format:
+  html:
+    theme: 
+      light: flatly
+      dark: darkly
+    css: styles.css
+
+
+

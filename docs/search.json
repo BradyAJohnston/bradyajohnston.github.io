@@ -1,0 +1,156 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I’m a self-taught and devout R coder, committed to improving the speed, accuracy and reproducibility of basic wet-lab research and it’s analysis. I currently have two packages available for download from CRAN, and a couple more on the way - check out my GitHub for details.\nI’m also a self-taught 3D artist using Blender for visualisation of proteins, and I teach other interested biochemists over on my YouTube channel.\n\n\n\n\nprotein motor go brrrrrr (7CGO)"
+  },
+  {
+    "objectID": "details.html",
+    "href": "details.html",
+    "title": "Projects",
+    "section": "",
+    "text": "This content appears below the formatted about page content."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Brady Johnston",
+    "section": "",
+    "text": "bioinformatics\n\n\nR\n\n\nprotein\n\n\n\n\n\n\n\nBrady Johnston\n\n\nFeb 15, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR\n\n\ntidytuesday\n\n\ndata vis\n\n\n\n\n\n\n\nBrady Johnston\n\n\nJan 31, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR\n\n\ntutorial\n\n\n\n\n\n\n\nBrady Johnston\n\n\nJul 7, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npython\n\n\nstructural biology\n\n\nbash\n\n\n\n\n\n\n\nBrady Johnston\n\n\nJun 9, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nblender\n\n\nsciart\n\n\nyoutube\n\n\ntutorial\n\n\n\n\n\n\n\nBrady Johnston\n\n\nMay 6, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nblender\n\n\nstructural biology\n\n\nnodes\n\n\n\n\n\n\n\nBrady Johnston\n\n\nApr 5, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nblender\n\n\nprotein\n\n\nAR\n\n\n\n\n\n\n\nBrady Johnston\n\n\nAug 16, 2019\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "molecular-nodes.html",
+    "href": "molecular-nodes.html",
+    "title": "Molecular Nodes",
+    "section": "",
+    "text": "For more details on the Molecular Nodes project, check out either the github page or the documentation.\n\n\n\nDNA is now part of Molecular Nodes!You can extract DNA from structures, procedurally create new DNA, use custom bases, join and break strands, colour it & make it look pretty. All from within #blender3d and #geometrynodes!Check it out: https://t.co/NEV3AxA8Yj pic.twitter.com/Wcr9h3bJZP\n\n— Brady Johnston (@bradyajohnston) July 18, 2022"
+  },
+  {
+    "objectID": "posts/2019-08-16-gfp-hat/index.html",
+    "href": "posts/2019-08-16-gfp-hat/index.html",
+    "title": "GFP as a Hat",
+    "section": "",
+    "text": "“People love face filters, people love GFP, what if we combined the two?”\n- My brain, late at night.\n\nThe next morning I had a quick look around and wasn’t able to find any evidence of anyone doing anything before. There has been a bit of effort into making AR protein apps and experiences, but we have all of these 3D models from all of the structural information that biology gathers, but nobody has put it into an instagram filter yet?\nI cranked out the old Blender, imported some models from PyMOL and quickly had a nice looking model of eGFP glowing bright green.\nTo skip the technical details, this was the rather successful result:\n\n\nHave you ever wanted to wear GFP as a hat? Well now you can. Playing around in blender and apple’s ARkit on iOS13#b3d pic.twitter.com/08XwyXW9e2\n\n— Brady Johnston (@bradyajohnston) September 28, 2019\n\n\nAs for how it was done, I won’t go into too much detail but the basics was this:\n\nExport .obj file from Pymol, using the structure 4EUL.\nImport into Blender to clean up the geometry (remove overlapping vertices) and combine to single .obj object.\nCreate green .png file to act as the colour texture, save next to .obj file.\nUse the apple usdzconvert supplied with xcode11 to do the following\n\n\nusdzconvert gfp.obj gfp.usdz -color_map green.png\n\nWith the gfp.usdz file you can now preview it on macOS\nCreate a new Reality Composer project for facial recognition\nImport the .usdz file into reality composer\nCompose the scene, press run and play around with the results.\n\nI want to do a lot more with this. There is more potential for using a cross-platform approach using SparkAR to compose Instagram face filters rather than having to build a whole app. We’ll see where that goes in the future."
+  },
+  {
+    "objectID": "posts/2020-04-05-animation-nodes-crashing/index.html",
+    "href": "posts/2020-04-05-animation-nodes-crashing/index.html",
+    "title": "Rendering around crashes with Animation Nodes",
+    "section": "",
+    "text": "Can we make some pixelated protein art?\n\n\n\nPixelated RNA pol II\n\n\nSome pixel art of the results.\nWanting to test out a nucleic-acid generator I created in Animation nodes, I spent a bit of time putting together a test scene (bacterial RNA polymerase synthesising some RNA from DNA template).\nHaving set up a scene, done the math and gotten things working I was ready to try out rendering the scene. Unfortunately there are a few problems with rendering using Animation Nodes, and after rendering 1-3 frames Blender would crash.\nFrustrated, I looked for solutions. One potential was to bake all calculations to key frames and render without executing the node tree. While it worked for the instanced cylinders, the backbones of my nucleic acids didn’t keyframe so I just had floating nucleotides in my scene.\nThe final working solution ended up being rendering from the terminal / command line. Blender has some useful documentation on how to do this here.\nI still had trouble when trying to render a batch of frames using -s 1 -e 250 to specify rendering frames 1-250, so instead the solution was to render single frames and restart Blender every time using a for loop in Command Line.\nThis results in: 1. Booting Blender 2. Loading the Scene 3. Render the specified frame 4. Save image and quit blender\nThe final solution worked like this for rendering on my windows machine:\nFOR /L %G IN (1,1,250) DO C:\\pathto\\blender.exe -b C:\\pathto\\blendfile.blend -o C:\\pathto\\frames_ -f %G\nWhich wrote frames_0001.png, frames_0002.png etc up to frame 250.\nSeemed to work without trouble, yielding this final animation once composited..\nI can’t embed html5 image so this gif will have to do, sorry for slow load times.\n\n\n\n\n\nBacterial RNA polymerase at work"
+  },
+  {
+    "objectID": "posts/2020-05-06-blender-for-biochemists/index.html",
+    "href": "posts/2020-05-06-blender-for-biochemists/index.html",
+    "title": "Blender for Biochemists.",
+    "section": "",
+    "text": "After promising people at multiple conferences that I might start doing some tutorials on how to get into the very exciting if very intimidating world of 3D modelling, I’ve finally made the plung.\nMaybe one day in a far off land (likely while I procrastinate writing my thesis) I will also write up accompanying documentation for how to achieve various looks and techniques (and some standards for importing / exporting 3D models). For now though there is only the youtube versions.\nYou can view the results below, and be sure to like and subscribe and all that as well."
+  },
+  {
+    "objectID": "posts/2020-06-09-pdb-tools/index.html",
+    "href": "posts/2020-06-09-pdb-tools/index.html",
+    "title": "Praise for pdb-tools",
+    "section": "",
+    "text": "A swiss army knife for manipulating and editing PDB files.\n\n\nAn output from some MD work left me with a .pdb file with 0.00 b-factors.\nbrady@bmac 1 % tail modifed.pdb\nATOM   9670  CB  ALA   609     139.230  39.040  82.350  1.00  0.00\nATOM   9674  C   ALA   609     141.480  39.340  81.290  1.00  0.00\nATOM   9675  O   ALA   609     142.160  39.960  82.160  1.00  0.00\nATOM   9676  N   GLY   610     142.090  38.490  80.480  1.00  0.00\nATOM   9678  CA  GLY   610     143.490  38.100  80.430  1.00  0.00\nATOM   9681  C   GLY   610     144.370  38.940  79.520  1.00  0.00\nATOM   9682  O   GLY   610     144.650  40.130  79.960  1.00  0.00\nATOM   9683  OXT GLY   610     145.010  38.410  78.550  1.00  0.00\nTER\nENDMDL\nAll I wanted was to quickly change them all to 1.00, so that I could move on to the next stage.\n\n\nA collection of simple scripts, written in python and available through the command line. Look at the full documentation here.\nThe solution was fairly simple:\npdb_b -1.00 PPR_path_heavy.pdb > modified.pdb\nWhich gave the result:\nbrady@bmac 1 % tail modified.pdb\nATOM   9670  CB  ALA   609     139.230  39.040  82.350  1.00  1.00\nATOM   9674  C   ALA   609     141.480  39.340  81.290  1.00  1.00\nATOM   9675  O   ALA   609     142.160  39.960  82.160  1.00  1.00\nATOM   9676  N   GLY   610     142.090  38.490  80.480  1.00  1.00\nATOM   9678  CA  GLY   610     143.490  38.100  80.430  1.00  1.00\nATOM   9681  C   GLY   610     144.370  38.940  79.520  1.00  1.00\nATOM   9682  O   GLY   610     144.650  40.130  79.960  1.00  1.00\nATOM   9683  OXT GLY   610     145.010  38.410  78.550  1.00  1.00\nTER\nENDMDL\nAnd that was it! easy done. Will definitely be using these a lot more in the future.\nThanks so much to the team behind it Rodrigues, J. P. G. L. M., Teixeira, J. M. C., Trellet, M. & Bonvin, A. M. J. J."
+  },
+  {
+    "objectID": "posts/2020-07-07-r-for-biologists/index.html",
+    "href": "posts/2020-07-07-r-for-biologists/index.html",
+    "title": "R for Biologists",
+    "section": "",
+    "text": "A couple of months ago I ran (with lots of help for content) an R for biologists workshop.\nIt was aimed at wet lab biologists and biochemists who hadn’t done much coding before. R is a fantastic language for doing statistical analysis, making beautiful graphics and visualising very complex datasets. I highly recommend it. A lot of people say the syntax is quirky (it is) but once you get the hang of it, you won’t regret.\nThe original working document for the tuturial was here, but I thought I might just include all of it directly on my blog as it was all written in markdown anyway.\nBelow is the contents of the workshop, along with video recordings of the sessions:"
+  },
+  {
+    "objectID": "posts/2020-07-07-r-for-biologists/index.html#r-for-biologists-workshop",
+    "href": "posts/2020-07-07-r-for-biologists/index.html#r-for-biologists-workshop",
+    "title": "R for Biologists",
+    "section": "R for Biologists Workshop",
+    "text": "R for Biologists Workshop\nThis document will contain relevant links, information, and allow us to quickly and collaboratively share code with good formatting.\nBrady’s Twitter: @bradyajohnston\n\nZoom Info\n\nZoom link: https://uwa.zoom.us/j/94747101358?pwd=V0NqQ1dJaW1sU0J5ZVIyV0Rta0huQT09\nZoom password: 546735\n\n\n\nCourse outline and info:\nWeb outline here\nDownload all files here:\nRstudio Cheat sheet\nMarkdown cheat sheet\n\n\nAnonymous Feedback form:\nhttps://forms.gle/7uuEMs47SuK5Nsm56\n\n\nSession recordings:\nIf any of these don’t work, send me an email. Session: 1. Recording, Password: 6eTQkyMH-qga 1. Recording, Password: Vs7hmZ7qU2-Y 1. Recording, Password: Brp7CL+HLtRS 1. Recording, Password: xJpHoC!h3V2d 1. Recording, Password: GaFdz4!uznE2 2. Recording, Password: Sf=6eALB6uMB 3. Recording, Password: zdZpyda8*ctg 4. Recording, Password: 7PfQkM2wU@SH 5. Recording: Password: -gmkneK4TnBU\n\n\nIntroductions:\nUse this space to introduce yourself! Just a brief bio about research you do, coding experience you might have etc.\nHello, I’m Soodeh\nHey guys, Heidar here Hi I am Federica from Milan, Italy :)\nHi Brady, thanks for the workshop! Kalia\nI am Paula (Pau VT), from Germany, but originally from Chile\nHello!\nHello! My name is Brady, and I am from Perth, australia. It is nice to have you all here!\nHello Brady\nHi everyone, this is Sam, I’m from Perth WA.\nHello all! I’m Callum and I’m from Perth Aus!\nHello, my name is Ayeisha and I am also from Perth, Australia.\nHello, My name is Khyati and am from India.\nG’day, my name is James, currently in Perth.\nHello, my name is Alessio and I am from Lombardy, Italy\nHello! I’m Jacob - from Perth, Australia.\nHi I’am Julie Mallet, from France\nHi everyone, my name is Giada, I’m from Italy!"
+  },
+  {
+    "objectID": "posts/2020-07-07-r-for-biologists/index.html#class-1---r-rstudio-installation",
+    "href": "posts/2020-07-07-r-for-biologists/index.html#class-1---r-rstudio-installation",
+    "title": "R for Biologists",
+    "section": "Class 1 - R / Rstudio Installation",
+    "text": "Class 1 - R / Rstudio Installation\nR version 4.0 has just been released! This is very exciting (for a number of nerdy reasons) but in this course we will be using R version 3.6.3 (you can use some version of 3.6.x) to keep things consistent with the materials.\n\nInstalling R and Rstudio\nThere is a great guide on how to download and install R if you haven’t already, than can be found here. If you get lost try following this one instead.\nRstudio is not much use to you without R installed, and using R without Rstudio is a lot more effort than it is worth. Ensure that you have both installed, and that Rstudio boots up.\n\n\nTry setting up your screen like this, in order to follow along.\n\nDownloading the R-markdown document for the first session here."
+  },
+  {
+    "objectID": "posts/2020-07-07-r-for-biologists/index.html#class-2---variables-types-and-functions.",
+    "href": "posts/2020-07-07-r-for-biologists/index.html#class-2---variables-types-and-functions.",
+    "title": "R for Biologists",
+    "section": "Class 2 - Variables, types and functions.",
+    "text": "Class 2 - Variables, types and functions.\nDownload second file here.\n\nLet’s talk about variables and functions."
+  },
+  {
+    "objectID": "posts/2020-07-07-r-for-biologists/index.html#class-3---intro-to-vectors",
+    "href": "posts/2020-07-07-r-for-biologists/index.html#class-3---intro-to-vectors",
+    "title": "R for Biologists",
+    "section": "Class 3 - Intro to Vectors",
+    "text": "Class 3 - Intro to Vectors\nClass 3 Files.\nPosting of code:"
+  },
+  {
+    "objectID": "posts/2020-07-07-r-for-biologists/index.html#class-4---logical-operations",
+    "href": "posts/2020-07-07-r-for-biologists/index.html#class-4---logical-operations",
+    "title": "R for Biologists",
+    "section": "Class 4 - Logical Operations",
+    "text": "Class 4 - Logical Operations\nLink to files"
+  },
+  {
+    "objectID": "posts/2020-07-07-r-for-biologists/index.html#class-5---dataframes",
+    "href": "posts/2020-07-07-r-for-biologists/index.html#class-5---dataframes",
+    "title": "R for Biologists",
+    "section": "Class 5 - Dataframes!",
+    "text": "Class 5 - Dataframes!\nLinke to files\nLink to iris files"
+  },
+  {
+    "objectID": "posts/2020-07-07-r-for-biologists/index.html#class-6---plotting-your-data-with-ggplot2.",
+    "href": "posts/2020-07-07-r-for-biologists/index.html#class-6---plotting-your-data-with-ggplot2.",
+    "title": "R for Biologists",
+    "section": "Class 6 - Plotting your data with ggplot2.",
+    "text": "Class 6 - Plotting your data with ggplot2.\nIf you haven’t download the files here:\nLet’s start posting out plots."
+  },
+  {
+    "objectID": "posts/2020-07-07-r-for-biologists/index.html#class-7",
+    "href": "posts/2020-07-07-r-for-biologists/index.html#class-7",
+    "title": "R for Biologists",
+    "section": "Class 7",
+    "text": "Class 7\nIf you have not downloaded files, download here:\nHere"
+  },
+  {
+    "objectID": "posts/2020-07-07-r-for-biologists/index.html#class-8-programming-with-r-part-1",
+    "href": "posts/2020-07-07-r-for-biologists/index.html#class-8-programming-with-r-part-1",
+    "title": "R for Biologists",
+    "section": "Class 8: Programming with R | Part 1",
+    "text": "Class 8: Programming with R | Part 1\nPrograaming with R.\nFiles here"
+  },
+  {
+    "objectID": "posts/2020-07-07-r-for-biologists/index.html#class-9-programming-with-r-part-2",
+    "href": "posts/2020-07-07-r-for-biologists/index.html#class-9-programming-with-r-part-2",
+    "title": "R for Biologists",
+    "section": "Class 9: Programming with R | Part 2",
+    "text": "Class 9: Programming with R | Part 2\nFiles available here.\nIf you didn’t save have success with making a function to make the plants grow, use the example one below:\n\ngrow_plants <- function(df, dog, growth_amount, sd){\n\n  growth_heights = rnorm(n = 3, mean = growth_amount * dog, sd = sd)\n\n  new_df_values <- data.frame(\n    day = rep(dog, 3),\n    height = growth_heights,\n    plant.id = LETTERS[1:3]\n  )\n\n  output_df <- rbind(df, new_df_values)\n\n  return(output_df)\n}"
+  },
+  {
+    "objectID": "posts/2021-01-31-tt/index.html",
+    "href": "posts/2021-01-31-tt/index.html",
+    "title": "Visualising Global Rubbish",
+    "section": "",
+    "text": "For this week’s #tidytuesday, I visualise the vast dataset of rubbish collected on the beaches all over the world.\n\n\n\nThe technical details can be viewed below the embedded tweet.\nThe data shows the headquarters for each company identified, and the lines show where the trash ended up. The more dots that move along the line, the more junk found in those selected companies’ locations.\nYou can play around with the final result at the bottom of this page.\n\nThe post can be seen below."
+  },
+  {
+    "objectID": "posts/2021-01-31-tt/index.html#using-the-joined-data-for-the-final-plot.",
+    "href": "posts/2021-01-31-tt/index.html#using-the-joined-data-for-the-final-plot.",
+    "title": "Visualising Global Rubbish",
+    "section": "Using the joined data for the final plot.",
+    "text": "Using the joined data for the final plot.\n\n# remotes::install_github(\"JohnCoene/echarts4r.assets\")\n\nlibrary(echarts4r)\nlibrary(echarts4r.assets)\nplotting %>% \n  group_by(parent_company) %>% \n  e_charts() %>% \n  e_globe(\n    environment = gray(0.1),\n    base_texture = ea_asset(\"world\"), \n    shading = 'lambert', \n    light.ambient = list(intensity = 10)\n  ) %>% \n  e_lines_3d(\n    com_long, \n    com_lat, \n    long, \n    lat, \n    value = count,\n    source_name = parent_company, \n    target_name = country,\n    effect = list(show = TRUE)\n  ) %>% \n  e_legend_toggle_select(name = \"Company\") %>% \n  e_legend(textStyle = list(color = gray(0.9)))"
+  },
+  {
+    "objectID": "posts/2021-02-15-r3dmol/index.html",
+    "href": "posts/2021-02-15-r3dmol/index.html",
+    "title": "Interactively Visualising Proteins",
+    "section": "",
+    "text": "Recently I’ve been doing a lot of structural bioinformatics. To avoid having to export my results into PyMol of Chimerax, I wanted a better solution that could embed the results more easily into the report that I was writing.\nWhat would be even better than just an image of the final result is a fully interactive 3D model of the protein I was analysing at the time. Packages to achieve a similar sort of impact were already available in the form of 3Dmol.js, but it wasn’t easy to embed or create through the R interface.\nI now humbly present, an (early) version of {r3dmol}!\nPlay around with the widget below, which can be generated in just a couple of lines of code, and embedded in an rmarkdown document or in the RStudio viewer pane.\n\n# install.packages(\"r3dmol\")\nr3dmol::m_glimpse('4ozs') |> \n  r3dmol::m_spin()\n\n\n\n\n\n\nCheck the Twitter thread for more details, but now while still in the Rstudio IDE, you can create molecular visualisations to quickly preview your work, but more importantly, you can seamlessly embed them into Rmarkdown HTML reports for sharing with colleagues or blogging online.\n\n\nHey! I helped make an open source package!If you do any kind of structural bioinformatics in R, or even if you just want to embed pdbs easily into a blogdown post, you can do so with the {r3dmol} (originally by @swsoyee): https://t.co/s9De6kuVpT #rstats pic.twitter.com/LA9rjJIaKV\n\n— Brady Johnston (@bradyajohnston) February 4, 2021"
+  }
+]

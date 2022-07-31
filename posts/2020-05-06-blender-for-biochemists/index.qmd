@@ -1,0 +1,25 @@
+---
+title: "Blender for Biochemists."
+author: "Brady Johnston"
+subtitle: "Teaching 3D modelling and advanced visualisation techniques to scientists."
+image: images/paste-6CB2B366.png
+categories: [blender, sciart, youtube, tutorial]
+date: '2020-05-06'
+---
+
+I've started my journey into the realm of youtube.
+
+After promising people at multiple conferences that I might start doing some tutorials on how to get into the very exciting if very intimidating world of 3D modelling, I've finally made the plung.
+
+Maybe one day in a far off land (likely while I procrastinate writing my thesis) I will also write up accompanying documentation for how to achieve various looks and techniques (and some standards for importing / exporting 3D models).
+For now though there is only the youtube versions.
+
+You can view the results below, and be sure to *like and subscribe* and all that as well.
+
+<center>
+
+<iframe width="800" height="450" src="https://www.youtube.com/embed/CfkjBoOaw0g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+</center>
