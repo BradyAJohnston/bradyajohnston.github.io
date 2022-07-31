@@ -5,7 +5,7 @@ format: html
 
 Molecular nodes is a project that I have been working on for the efficient import of structural biology data into the 3D modelling and animation program Blender. 
 
-For more details on the Molecular Nodes project, check out either the [github page](https://github.com/bradyajohnston/molecularnodes) or the [documentation](https://bradyajohnston.github.io/molecularnodes).
+For more details on the Molecular Nodes project, check out either the [github page](https://github.com/bradyajohnston/MolecularNodes) or the [documentation](https://bradyajohnston.github.io/molecularnodes).
 
 
 <center>
