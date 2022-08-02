@@ -1,0 +1,85 @@
+---
+title: "Baby's First R Package"
+subtitle: It's easier than you think!
+date: "2022-08-10"
+author: "Brady Johnston"
+categories: [R, tutorial, package]
+format: html
+bibliography: references.bib
+code-link: true
+toc: true
+toc-location: left
+---
+
+Any time I've chatted to someone recently about some of their R code, I keep finding myself saying:
+
+> We could make that into an R package! It only takes like 15 minutes!
+
+The reason I keep harassing people like this, is because it really is quite easy to make an R package! It's a daunting task at first, but thanks to the hard work of many people in the <mono>[tidyverse](https://tidyverse.org)</mono> team, all it takes is a few function calls to get a package set up and running. Then you can upload to github and it's ready for either you (on another computer) or a collaborator to install & use your hand-crafted R code!
+
+### What's in a name.
+
+Before we do get started, I recommend using the [`{available}`](https://github.com/r-lib/available) [@available] package to check for names that might already be taken on repositories like CRAN & Bioconda. Using the `browse = TRUE` variable will open up a browser for various website for your potential package name, but I like to set this to false when testing out a bunch of different package names to find one that isn't taken and is also coherent.
+
+```{r}
+#| cache: true
+available::available(
+  name = "fretr", 
+  browse = FALSE, 
+)
+```
+
+## Required Packages
+
+There are a couple of required packages to install first. These will require some compilation so you'll want to have [R-tools](https://cran.r-project.org/bin/windows/Rtools/) installed if you are on windows, which will require administrator privileges.
+
+-   Package setup, filling in boilerplate package structure, handling dependencies, publishing to GitHub and even to CRAN, is all done by [`{usethis}`](https://usethis.r-lib.org/) [@usethis]
+
+-   Actually building the package and documentation to be usable by other users will be handled by [`{devtools}`](https://devtools.r-lib.org/) [@devtools] & [`{roxygen2}`](https://roxygen2.r-lib.org/index.html) [@roxygen2]
+
+```{r}
+#| eval: false
+required_packages <- c("devtools", "roxygen2", "usethis")
+
+install.packages(required_packages)
+```
+
+Once you have the packages successfully installed, you can create a new package, right from the R console! Or use the "New Project" button inside of RStudio.
+
+::: panel-tabset
+## R Console
+
+The `path` argument will create the set up the required files for the package in the path specified. If the path does not exist, it will be created. This means you can create the folder for your package to live in right from the here!
+
+`usethis` will set it up to work nicely with RStudio, which is my recommended development environment.
+
+```{r}
+#| eval: false
+usethis::create_package(
+  path = "~/git/fretr",
+  rstudio = TRUE
+)
+```
+
+## RStudio
+
+Click the "New Project" button in the top-left.
+
+![](images/CleanShot%202022-08-02%20at%2018.01.58.png)
+
+Click the "New Directory" so that your R package has its own clean directory to live in.
+
+![](images/CleanShot%202022-08-02%20at%2018.15.45.png)
+
+Click "R Package"
+
+![](images/paste-091C7924.png)
+
+1.  Enter your package name
+2.  Choose the folder where the source files for your package will be saved.
+3.  Initialise a git repository to use version control (not essential, but *very* recommended)
+4.  Use [`{renv}`](https://rstudio.github.io/renv/) [@renv] to create a reproducible development environment (not essential, but *very* recommended)
+5.  Click 'Create Project' to initialise the project!
+
+![](images/CleanShot%202022-08-02%20at%2018.18.04.png)
+:::
