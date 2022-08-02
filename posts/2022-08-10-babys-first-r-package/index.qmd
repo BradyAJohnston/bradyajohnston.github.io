@@ -83,3 +83,29 @@ Click "R Package"
 
 ![](images/CleanShot%202022-08-02%20at%2018.18.04.png)
 :::
+
+Once you have your project set up and ready to, we can start to add functions! A new R Package project will by default come with the `hello_world()` function defined for you. You can use this file, or create a new file with the ‘New File’ button inside of RStudio. I recommend continuing to work with `{usethis}`, and use the `use_r()` function which will create and open a new file for you.
+
+
+```r
+usethis::use_r(“fret_predict”)
+```
+
+:::{.callout-note}
+# A Note on Naming
+It’s always difficult to come up with good names for things. Whether its naming variables, functions or dataframes, coming up with meaningful and informative names is difficult.
+
+It’s tempting when you are starting out to always name things as concisely as possible. For myself it felt more `hackery` to do so. You should do the opposite, and ensure that you convey as much meaning as possible by being as verbose as you can about what a function does and what a variable is. I highly recommend the [tidyverse style guide](https://style.tidyverse.org/functions.html#naming) inspiration and guidance on how to name things well.
+
+> As well as following the general advice for object names, strive to use verbs for function names.
+
+```r
+# Good
+add_row()
+permute()
+
+# Bad
+row_adder()
+permutation()
+```
+:::
