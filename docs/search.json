@@ -18,7 +18,7 @@
     "href": "index.html",
     "title": "Brady Johnston",
     "section": "",
-    "text": "bioinformatics\n\n\nR\n\n\nprotein\n\n\n\n\n\n\n\nBrady Johnston\n\n\nFeb 15, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR\n\n\ntidytuesday\n\n\ndata vis\n\n\n\n\n\n\n\nBrady Johnston\n\n\nJan 31, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR\n\n\ntutorial\n\n\n\n\n\n\n\nBrady Johnston\n\n\nJul 7, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npython\n\n\nstructural biology\n\n\nbash\n\n\n\n\n\n\n\nBrady Johnston\n\n\nJun 9, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nblender\n\n\nsciart\n\n\nyoutube\n\n\ntutorial\n\n\n\n\n\n\n\nBrady Johnston\n\n\nMay 6, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nblender\n\n\nstructural biology\n\n\nnodes\n\n\n\n\n\n\n\nBrady Johnston\n\n\nApr 5, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nblender\n\n\nprotein\n\n\nAR\n\n\n\n\n\n\n\nBrady Johnston\n\n\nAug 16, 2019\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "ggplot2\n\n\nR\n\n\ncoding\n\n\nfluoresence\n\n\n\n\n\n\n\nBrady Johnston\n\n\nSep 3, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nbioinformatics\n\n\nR\n\n\nprotein\n\n\n\n\n\n\n\nBrady Johnston\n\n\nFeb 15, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR\n\n\ntidytuesday\n\n\ndata vis\n\n\n\n\n\n\n\nBrady Johnston\n\n\nJan 31, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR\n\n\ntutorial\n\n\n\n\n\n\n\nBrady Johnston\n\n\nJul 7, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npython\n\n\nstructural biology\n\n\nbash\n\n\n\n\n\n\n\nBrady Johnston\n\n\nJun 9, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nblender\n\n\nsciart\n\n\nyoutube\n\n\ntutorial\n\n\n\n\n\n\n\nBrady Johnston\n\n\nMay 6, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nblender\n\n\nstructural biology\n\n\nnodes\n\n\n\n\n\n\n\nBrady Johnston\n\n\nApr 5, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nblender\n\n\nprotein\n\n\nAR\n\n\n\n\n\n\n\nBrady Johnston\n\n\nAug 16, 2019\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "molecular-nodes.html",
@@ -152,5 +152,26 @@
     "title": "Interactively Visualising Proteins",
     "section": "",
     "text": "Recently I’ve been doing a lot of structural bioinformatics. To avoid having to export my results into PyMol of Chimerax, I wanted a better solution that could embed the results more easily into the report that I was writing.\nWhat would be even better than just an image of the final result is a fully interactive 3D model of the protein I was analysing at the time. Packages to achieve a similar sort of impact were already available in the form of 3Dmol.js, but it wasn’t easy to embed or create through the R interface.\nI now humbly present, an (early) version of {r3dmol}!\nPlay around with the widget below, which can be generated in just a couple of lines of code, and embedded in an rmarkdown document or in the RStudio viewer pane.\n\n# install.packages(\"r3dmol\")\nr3dmol::m_glimpse('4ozs') |> \n  r3dmol::m_spin()\n\n\n\n\n\n\nCheck the Twitter thread for more details, but now while still in the Rstudio IDE, you can create molecular visualisations to quickly preview your work, but more importantly, you can seamlessly embed them into Rmarkdown HTML reports for sharing with colleagues or blogging online.\n\n\nHey! I helped make an open source package!If you do any kind of structural bioinformatics in R, or even if you just want to embed pdbs easily into a blogdown post, you can do so with the {r3dmol} (originally by @swsoyee): https://t.co/s9De6kuVpT #rstats pic.twitter.com/LA9rjJIaKV\n\n— Brady Johnston (@bradyajohnston) February 4, 2021"
+  },
+  {
+    "objectID": "posts/2022-09-03-plotting-fluorescence/index.html",
+    "href": "posts/2022-09-03-plotting-fluorescence/index.html",
+    "title": "Plotting Fluorescent Spectra",
+    "section": "",
+    "text": "How do we go about plotting some spectral data from fluorophores, to get something like below?"
+  },
+  {
+    "objectID": "posts/2022-09-03-plotting-fluorescence/index.html#getting-the-data",
+    "href": "posts/2022-09-03-plotting-fluorescence/index.html#getting-the-data",
+    "title": "Plotting Fluorescent Spectra",
+    "section": "Getting the Data",
+    "text": "Getting the Data\nI just downloaded as a .csv from FPBase for the fluorophores of interest.\n\nlibrary(here)\nlibrary(tidyverse)\n\n\ndat <- readr::read_csv(\n  file =  here(\"posts/2022-09-03-plotting-fluorescence/spectra.csv\"), \n  col_types = readr::cols()\n  )\n\n\ndat <- dat |> \n  janitor::clean_names() |> \n  mutate(\n    across(\n      -wavelength, \n      ~if_else(is.na(.x), 0, .x)\n    )\n  )\n\ndat\n\n# A tibble: 473 × 8\n   wavelength egfp_em egfp_ex m_turquoise2_em m_turquo…¹ m_tur…² m_sca…³ m_sca…⁴\n        <dbl>   <dbl>   <dbl>           <dbl>      <dbl>   <dbl>   <dbl>   <dbl>\n 1        300       0  0.0962               0      0.248   0.248       0       0\n 2        301       0  0.0872               0      0.227   0.227       0       0\n 3        302       0  0.0801               0      0.205   0.205       0       0\n 4        303       0  0.0739               0      0.185   0.185       0       0\n 5        304       0  0.0675               0      0.163   0.163       0       0\n 6        305       0  0.0612               0      0.148   0.148       0       0\n 7        306       0  0.0579               0      0.133   0.133       0       0\n 8        307       0  0.0541               0      0.124   0.124       0       0\n 9        308       0  0.0528               0      0.113   0.113       0       0\n10        309       0  0.049                0      0.107   0.107       0       0\n# … with 463 more rows, and abbreviated variable names ¹​m_turquoise2_ab,\n#   ²​m_turquoise2_ex, ³​m_scarlet_em, ⁴​m_scarlet_ex\n# ℹ Use `print(n = ...)` to see more rows"
+  },
+  {
+    "objectID": "posts/2022-09-03-plotting-fluorescence/index.html#an-interactive-version",
+    "href": "posts/2022-09-03-plotting-fluorescence/index.html#an-interactive-version",
+    "title": "Plotting Fluorescent Spectra",
+    "section": "An Interactive Version?",
+    "text": "An Interactive Version?\nWith plotly we can quickly create an interactive web version from our hard work creating the ggplot2 object.\n\nplotly::ggplotly(plt)"
   }
 ]
