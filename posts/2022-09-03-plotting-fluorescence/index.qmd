@@ -1,0 +1,145 @@
+---
+title: Plotting Fluorescent Spectra
+subtitle: Comparing excitation and emission spectra.
+date: "2022-09-03"
+author: "Brady Johnston"
+categories: [ggplot2, R, coding, fluoresence]
+fig-align: center
+code-link: true
+---
+
+How do we go about plotting some spectral data from fluorophores, to get something like below?
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hey R friends, I need to plot comparative spectra and want to try that shaded area under curve aesthetic. Any tips? Looks something like this: <a href="https://t.co/6FcTV36AY1">pic.twitter.com/6FcTV36AY1</a></p>&mdash; Sebastian S. Cocioba🌻🛠 (@ATinyGreenCell) <a href="https://twitter.com/ATinyGreenCell/status/1565764232456683520?ref_src=twsrc%5Etfw">September 2, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+
+
+## Getting the Data
+
+I just downloaded as a `.csv` from [FPBase](https://www.fpbase.org/spectra/) for the fluorophores of interest.
+
+
+
+```{r}
+#| message: false
+#| warning: false
+library(here)
+library(tidyverse)
+```
+
+```{r}
+#| warning: false
+dat <- readr::read_csv(
+  file =  here("posts/2022-09-03-plotting-fluorescence/spectra.csv"), 
+  col_types = readr::cols()
+  )
+
+
+dat <- dat |> 
+  janitor::clean_names() |> 
+  mutate(
+    across(
+      -wavelength, 
+      ~if_else(is.na(.x), 0, .x)
+    )
+  )
+
+dat
+```
+
+# Making a Test Plot
+
+```{r}
+dat |> 
+  pivot_longer(-wavelength) |> 
+  ggplot(aes(wavelength, value, fill = name, colour = name)) + 
+  geom_area(alpha = 0.3, position = "identity") + 
+  theme_classic()
+```
+
+This is looking pretty good, but we want to try and get the line types distinguished by whether they are excitation or emission, and colour them based on just their fluorophore and not their fluorophore and their excitation / emission.
+
+```{r}
+dat |> 
+  pivot_longer(-wavelength) |> 
+  mutate(
+    type = if_else(str_detect(name, "em$"), "emission", "excitation"), 
+    fluorophore = str_remove(name, "\\_(ex|em)$")
+  )
+```
+
+This is working, but I have realised that we also have some absorbance readings in there, which isn't what we are after.
+
+```{r}
+dat_long <- dat |> 
+  pivot_longer(-wavelength) |> 
+  mutate(
+    type = if_else(str_detect(name, "em$"), "Emission", "Excitation"), 
+    fluorophore = str_remove(name, "\\_(ex|em)$"), 
+    type = factor(type, levels = c("Excitation", "Emission"))
+  ) |> 
+  filter(
+    str_detect(name, "ab$", negate = TRUE)
+  )
+
+dat_long
+```
+
+# Plotting Again
+
+```{r}
+plt <- dat_long |> 
+  ggplot(aes(
+    x = wavelength, 
+    y = value, 
+    fill = fluorophore, 
+    group = name
+    )) + 
+  geom_area(
+    aes(linetype = type),
+    position = "identity", 
+    alpha = 0.3, 
+    colour = alpha("black", 0.7)
+  ) + 
+  scale_fill_manual(
+    values = c(
+      "egfp" = "green", 
+      "m_turquoise2" = "skyblue", 
+      "m_scarlet" = "tomato"
+    )
+  ) +
+  scale_linetype_manual(
+    values = c(
+      "Excitation" = "dotted", 
+      "Emission" = "solid"
+    )
+  ) + 
+  theme_classic() 
+
+plt
+```
+
+Let's pretty it up a bit more.
+
+```{r}
+plt <- plt + 
+  labs(
+    x = "Wavelength (nm)", 
+    fill = "Fluorphore", 
+    linetype = ""
+  ) + 
+  theme(
+    legend.position = "top", 
+    axis.title.y = element_blank()
+  )
+
+plt
+```
+
+## An Interactive Version?
+
+With `{plotly}` we can quickly create an interactive web version from our hard work creating the `{ggplot2}` object.
+
+```{r}
+plotly::ggplotly(plt)
+```

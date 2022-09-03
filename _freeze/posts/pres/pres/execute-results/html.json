@@ -1,0 +1,18 @@
+{
+  "hash": "8c7d71c098d9c8a964ab8558120ad628",
+  "result": {
+    "markdown": "---\ntitle: \"Untitled\"\nformat: revealjs\neditor: visual\n---\n\n::: {.cell}\n\n```{.r .cell-code}\nsummary(lm(mpg ~ cyl, mtcars))\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n\nCall:\nlm(formula = mpg ~ cyl, data = mtcars)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.9814 -2.1185  0.2217  1.0717  7.5186 \n\nCoefficients:\n            Estimate Std. Error t value Pr(>|t|)    \n(Intercept)  37.8846     2.0738   18.27  < 2e-16 ***\ncyl          -2.8758     0.3224   -8.92 6.11e-10 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 3.206 on 30 degrees of freedom\nMultiple R-squared:  0.7262,\tAdjusted R-squared:  0.7171 \nF-statistic: 79.56 on 1 and 30 DF,  p-value: 6.113e-10\n```\n:::\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\r\n<script>\r\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\r\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\r\n  // slide changes (different for each slide format).\r\n  (function () {\r\n    function fireSlideChanged(previousSlide, currentSlide) {\r\n\r\n      // dispatch for htmlwidgets\r\n      const event = window.document.createEvent(\"Event\");\r\n      event.initEvent(\"slideenter\", true, true);\r\n      window.document.dispatchEvent(event);\r\n\r\n      // dispatch for shiny\r\n      if (window.jQuery) {\r\n        if (previousSlide) {\r\n          window.jQuery(previousSlide).trigger(\"hidden\");\r\n        }\r\n        if (currentSlide) {\r\n          window.jQuery(currentSlide).trigger(\"shown\");\r\n        }\r\n      }\r\n    }\r\n\r\n    // hookup for reveal\r\n    if (window.Reveal) {\r\n      window.Reveal.addEventListener(\"slidechanged\", function(event) {\r\n        fireSlideChanged(event.previousSlide, event.currentSlide);\r\n      });\r\n    }\r\n\r\n    // hookup for slidy\r\n    if (window.w3c_slidy) {\r\n      window.w3c_slidy.add_observer(function (slide_num) {\r\n        // slide_num starts at position 1\r\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\r\n      });\r\n    }\r\n\r\n  })();\r\n</script>\r\n\r\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
