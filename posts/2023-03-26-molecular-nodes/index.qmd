@@ -1,35 +1,33 @@
 ---
-title: Molecular Nodes Project
-subtitle: Revolutionising Molecular Graphics
+title: Molecular Nodes
+subtitle: A Year in Review
 date: "2023-03-26"
 author: "Brady Johnston"
 categories: [blender, MolecularNodes, devlog]
 fig-align: center
 code-link: true
+toc: true
 ---
 
-11 Months ago I created my first git commit to a project that had been bouncing around inside my brain for several months, and I finally committed to learning some python to make it a reality.
+Basically a year ago, I created my first git commit to a project that had been bouncing around inside my brain for several months, and I finally committed to learning some python to make it a reality.
+
+Today, Molecular Nodes now has over 500 stars on GitHub, thousands of downloads, hundreds of posts on twitter of people showing off the images and animations they have created. It started out supporting basic PDB import as atoms into Blender, and has since grown to import molecular dynamics trajectories via [MDAnalysis](https://MDAnalysis.org), importing of EM density maps, `.star` files from EM tomography datasets, procedural creation and animation of DNA and proteins.
+
+It's quite the collection of features, and has already lead to Molecular Nodes being used in several online projects (TODO) to name a few.
+
+I wanted to take this opportunity to do a bit of a
 
 ![The first day of commits.](images/first_commit.png){fig-alt="A screenshot showing some details for the first few git commits of the GitHub repository MolecularNodes, the first commits are on the 25th of April, 2022."}
 
-It was an idea that had been bothering me for years of playing around inside of Blender trying to animate proteins.
-There was not shortage of solutions, other plugins and attempts at a similar thing, of importing protein structures in to Blender.
-Each had their own unique quirks, and none quite did what I wanted them to.
-All of them were limited by exactly the same problem.
+It was an idea that had been bothering me for years of playing around inside of Blender trying to animate proteins. There was not shortage of solutions, other plugins and attempts at a similar thing, of importing protein structures in to Blender. Each had their own unique quirks, and none quite did what I wanted them to. All of them were limited by exactly the same problem.
 
 ## The Problem
 
 ### Protein Data Formats
 
-Protein structures are inherently a tabular data structure.
-You have a series of atoms, each of which can be represented by a singular point in space.
-Each of these points in space have a number of *attributes* associated with them.
-The most basic one is what element is this atom.
-From that information you have the radius(TODO sidenote on radii) of the atom, along with some other properties.
-In the context of a protein structure, the atom also has number of additional attributes such as the `chain_id` which tells you which protein chain the atom is a part of, along with the name of the amino acid the atom is a part of, residue number, atom name (where in the amino acid / molecule thie atom appears).
+Protein structures are inherently a tabular data structure. You have a series of atoms, each of which can be represented by a singular point in space. Each of these points in space have a number of *attributes* associated with them. The most basic one is what element is this atom. From that information you have the radius(TODO sidenote on radii) of the atom, along with some other properties. In the context of a protein structure, the atom also has number of additional attributes such as the `chain_id` which tells you which protein chain the atom is a part of, along with the name of the amino acid the atom is a part of, residue number, atom name (where in the amino acid / molecule thie atom appears).
 
-While the `.pdb` file format is now officially deprecated (TODO link to article) after being intiially conceived in the (TODO timepoint), it is the best and most simple representation of this information.
-It has one row per atom, and a column dedicated to each attribute that is associated with each particular atom.
+While the `.pdb` file format is now officially deprecated (TODO link to article) after being intiially conceived in the (TODO timepoint), it is the best and most simple representation of this information. It has one row per atom, and a column dedicated to each attribute that is associated with each particular atom.
 
 ```         
 ATOM      1  N   ASP A   1      42.099  12.935 -17.274  1.00 43.88           N
@@ -56,53 +54,24 @@ ATOM     20  CB  VAL A   3      41.241   6.978 -15.059  1.00 65.62           C
 
 ### Representing Protein Data
 
-To represent this protein data, the easiest method is to create a sphere for each atom, scale the size based on the radius and colour it based on the element or some other metadata associated with the atom.
-This method is simple enough to achieve, but can become very busy in complex scenes with many many atoms.
-It is hard to decipher important structural characteristics from the structure by just looking at the atoms.
+To represent this protein data, the easiest method is to create a sphere for each atom, scale the size based on the radius and colour it based on the element or some other metadata associated with the atom. This method is simple enough to achieve, but can become very busy in complex scenes with many many atoms. It is hard to decipher important structural characteristics from the structure by just looking at the atoms.
 
-To get around this issue, ribbon representations were conceived (TODO citation) to simplify the data by drawing a line through the peptide backbone.
-This simplifies the data visually for the viewer.
-This requires some extra computation, but has been achievable for a long time in many dedicated computer graphics programs, and before that in hand-drawn sketches by skilled scientists and artists (TODO citation).
+To get around this issue, ribbon representations were conceived (TODO citation) to simplify the data by drawing a line through the peptide backbone. This simplifies the data visually for the viewer. This requires some extra computation, but has been achievable for a long time in many dedicated computer graphics programs, and before that in hand-drawn sketches by skilled scientists and artists (TODO citation).
 
-There is also the surface representation of the data, where various algorithms find some version of the surface of the protein, that would only be accessible to solvent or would be considered space filling.
-These are great for visualising what ligand would 'see' when interacting with a protein.
-When interacting with other molecules, it's mostly what's on the the outside that counts.
+There is also the surface representation of the data, where various algorithms find some version of the surface of the protein, that would only be accessible to solvent or would be considered space filling. These are great for visualising what ligand would 'see' when interacting with a protein. When interacting with other molecules, it's mostly what's on the the outside that counts.
 
-All of these representations involve taking this base protein information, a series of points in space with attributes, taking that data through various computer graphics algorithms, which generate 3D meshes that are able to be displayed in 3D programs.
-This same approach is taken by PyMol, ChimeraX, Mol\* and any other computer graphics program.
+All of these representations involve taking this base protein information, a series of points in space with attributes, taking that data through various computer graphics algorithms, which generate 3D meshes that are able to be displayed in 3D programs. This same approach is taken by PyMol, ChimeraX, Mol\* and any other computer graphics program.
 
-The resulting 3D meshes are also made up of points, but now points representing atoms.
-They are made up of vertices, which have relational attributes known as edges, which indicate they are connected, and these edges have relational attributes known as faces which indicate they make up the same flat face.
-It's with all of this relational data that a computer can draw an object in 3D space, add lighting and shadows and colours.
-The problem we start running into, is that to represent a single atom, you end up with hundreds of vertices, edges and faces, just to show a single point in space.
+The resulting 3D meshes are also made up of points, but now points representing atoms. They are made up of vertices, which have relational attributes known as edges, which indicate they are connected, and these edges have relational attributes known as faces which indicate they make up the same flat face. It's with all of this relational data that a computer can draw an object in 3D space, add lighting and shadows and colours. The problem we start running into, is that to represent a single atom, you end up with hundreds of vertices, edges and faces, just to show a single point in space.
 
-Now this a pretty much how computer graphics works mostly.
-The alternative representations such as cartoons and surfaces can reduce the number of vertices, edges & faces that are required to represent the same number of atoms.
-This is great, but if anything changes about the underlying data, say you are animating through a protein morph or a molecular dynamics trajectory, then the generated 3D mesh needs to be regenerated.
-This is fine if you are staying within your molecular graphics program of choice, but it becomes a problem if you want something with more rendering capabilities.
+Now this a pretty much how computer graphics works mostly. The alternative representations such as cartoons and surfaces can reduce the number of vertices, edges & faces that are required to represent the same number of atoms. This is great, but if anything changes about the underlying data, say you are animating through a protein morph or a molecular dynamics trajectory, then the generated 3D mesh needs to be regenerated. This is fine if you are staying within your molecular graphics program of choice, but it becomes a problem if you want something with more rendering capabilities.
 
 ### Fancy Lighting
 
-Molecular graphics programs aren't focused on aesthetics.
-A lot of them do a really great job when it comes to rendering, but their goal is usually analysis of underlying data and experiments, and rendering as an secondary goal.
-To achieve more 'cinematic' lighting and animation capabilities, a user can export the generated 3D model, which contains all of the vertices, edges and faces, and import this into a another 3D program of choice.
-Popular choices are Autodesk Maya, Cinema4D, and of course, Blender.
-This turns out to be quite successful.
-You can create a 3D model, export it to your 3D program, add some fancy lighting and textures, and your have a cinematic scene that has your colleagues saying 'wow' in their seats as you move to your next slide.
+Molecular graphics programs aren't focused on aesthetics. A lot of them do a really great job when it comes to rendering, but their goal is usually analysis of underlying data and experiments, and rendering as an secondary goal. To achieve more 'cinematic' lighting and animation capabilities, a user can export the generated 3D model, which contains all of the vertices, edges and faces, and import this into a another 3D program of choice. Popular choices are Autodesk Maya, Cinema4D, and of course, Blender. This turns out to be quite successful. You can create a 3D model, export it to your 3D program, add some fancy lighting and textures, and your have a cinematic scene that has your colleagues saying 'wow' in their seats as you move to your next slide.
 
-If you have a *big* protein though, you can start running into trouble.
-Exporting and importing such large 3D models, becomes very resource intensive.
-A `.pdb` file that is \~10 MB can become a 3D model which is \~100 MB depending on the representations chosen.
-Moving that much data around can be problematic.
-The other major problem with this workflow, is that the 3D model is dumb.
-Dumb in the sense that it has no connection to the underlying data that was responsible for building it.
-Blender doesn't know where those vertices came from, whether they were for an oxygen, part of an alanine, from chain A or chain D.
-To Blender it is just a 3D model.
-If there are multiple frames to an animation, the 3D model needs to be regenerated each time, exported, imported, and very quickly you end up with gigbytes of data.
-You can't use any kind of motion blur either if each model is its own static 3D mesh.
-Each model is dumb not only to the information that built it, but to any information about what came before or after it.
+If you have a *big* protein though, you can start running into trouble. Exporting and importing such large 3D models, becomes very resource intensive. A `.pdb` file that is \~10 MB can become a 3D model which is \~100 MB depending on the representations chosen. Moving that much data around can be problematic. The other major problem with this workflow, is that the 3D model is dumb. Dumb in the sense that it has no connection to the underlying data that was responsible for building it. Blender doesn't know where those vertices came from, whether they were for an oxygen, part of an alanine, from chain A or chain D. To Blender it is just a 3D model. If there are multiple frames to an animation, the 3D model needs to be regenerated each time, exported, imported, and very quickly you end up with gigbytes of data. You can't use any kind of motion blur either if each model is its own static 3D mesh. Each model is dumb not only to the information that built it, but to any information about what came before or after it.
 
-This was the state of working with molecular data inside of dedicated 3D programs.
-Until Blender started to work on their Geometry Nodes project, bringing procedural modelling and mesh generation to everyone, without ever having to write any of the `C++` code yourself.
+This was the state of working with molecular data inside of dedicated 3D programs. Until Blender started to work on their Geometry Nodes project, bringing procedural modelling and mesh generation to everyone, without ever having to write any of the `C++` code yourself.
 
 ## Geometry Nodes
