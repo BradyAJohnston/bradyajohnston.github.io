@@ -1,0 +1,75 @@
+/*--scss:defaults--*/
+
+// Catppuccin Frappe palette
+
+$rosewater: #f2d5cf;
+$flamingo: #eebebe;
+$pink: #f4b8e4;
+$mauve: #ca9ee6;
+$red: #e78284;
+$maroon: #ea999c;
+$peach: #ef9f76;
+$yellow: #e5c890;
+$green: #a6d189;
+$teal: #81c8be;
+$sky: #99d1db;
+$sapphire: #85c1dc;
+$blue: #8caaee;
+$lavender: #babbf1;
+$text: #c6d0f5;
+$subtext1: #b5bfe2;
+$subtext0: #a5adce;
+$overlay2: #949cbb;
+$overlay1: #838ba7;
+$overlay0: #737994;
+$surface2: #626880;
+$surface1: #51576d;
+$surface0: #414559;
+
+$base: #303446;
+$mantle: #292c3c;
+$crust: #232634;
+
+// Re-define base colours
+
+
+$body-color: $text;
+$primary: $blue;
+$background-color: $base;
+$body-bg: $base;
+$link-color: $blue;
+
+$code-bg: $crust;
+$code-color: $sapphire;
+
+$code-block-bg: $surface0;
+$btn-code-copy-color: $overlay2;
+$btn-code-copy-color-active: $maroon;
+
+.quarto-grid-item.card{
+    background-color: $mantle;
+}
+
+.quarto-grid-item .listing-categories .listing-category {
+    color:$green;
+    border:solid 1px $yellow;
+    border-radius:.25rem;
+    text-transform:uppercase;
+    font-size:.65em;
+    padding-left:.5em;
+    padding-right:.5em;
+    padding-top:.15em;
+    padding-bottom:.15em;
+    cursor:pointer;
+    margin-right:4px;
+    margin-bottom:4px;
+}
+
+.quarto-title .quarto-categories .quarto-category {
+    padding:.25em .75em;
+    font-size:.65em;
+    text-transform:uppercase;
+    border:solid 1px $yellow;
+    border-radius:.25rem;
+    opacity:.6;
+}

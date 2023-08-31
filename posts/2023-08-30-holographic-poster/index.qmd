@@ -3,38 +3,51 @@ title: Making a Holographic Poster
 subtitle: Proteins belong in the third dimesion.
 author: Brady Johnston
 date: 2023-08-30
+categories: [blender, molecular nodes, structural biology] 
+toc: true
 ---
 
-IUCr2023 has wrapped up. It was an interesting and at times gruelingly long conference. I presented a poster, which finally gave me the chance to test out an idea that I've had for many years.
-
+IUCr2023 just wrapped up and it has been an interesting and at times gruelingly long conference. I presented a poster, which finally gave me the chance to test out an idea that I've had for many years.
 
 # The TL;DR
 
-To quickly summarise the details, I attached both my iPad and a [Looking Glass Portrait](https://look.glass/brady) using extra-strong velcro tape to my poster. 
-I had to ensure my poster was laminated, and that I added lots of extra velcro tape to the back of the poster (extra behind the iPad and display) to ensure it could take the weight. 
-All of the movies played on the iPad were either screen-recordings of me working inside of Blender, or rendered movies that were created inside of Blender. 
-All of the molecular data was imported and animated with [Molecular Nodes](https://github.com/bradyajohnston/MolecularNodes), the add-on which I created and which the poster was about.
-The holograms were similarly imported and animated with Molecular Nodes, but the rendering was done with [AliceLG](https://github.com/regcs/AliceLG) add-on or with some of my own code.
-These holograms were synced to the display, and the display played the pre-rendered movies. Power was supplied by a large battery bank, which was itself velcroed to the poster board. 
-Nothing special about this battery bank, other than it was the biggest one I could buy and it could output up to 60 W over USB-C power delivery.
+I attached my iPad and a [Looking Glass Portrait](https://look.glass/brady) using extra-strong velcro tape to my poster (which was laminated for extra strength). I rendered all of the animations and holograms myself, using the [Molecular Nodes](https://github.com/bradyajohnston/MolecularNodes) add-on that I created for Blender. The iPad ran off of its own battery, while the holographic display was powered by a large battery bank that was also stuck to the poster board.
 
-That’s the short description of everything that went into the poster. If you want to read on more about the thought process that went into creating it, continue on below. 
+::: {layout-ncol="2"}
+![A .png of the final poster.](images/poster.png){#fig-poster width="400px" fig-align="center" }
 
+![A video showing the final poster with moving images.](images/poster.mp4){#fig-poster-video width="400px" fig-align="center"}
+:::
+I had to ensure my poster was laminated, and that I added lots of extra velcro tape to the back of the poster (extra behind the iPad and display) to ensure it could take the weight. All of the movies played on the iPad were either screen-recordings of me working inside of Blender, or rendered movies that were created inside of Blender. All of the molecular data was imported and animated with [Molecular Nodes](https://github.com/bradyajohnston/MolecularNodes), the add-on which I created and which the poster was about. The holograms were similarly imported and animated with Molecular Nodes, but the rendering was done with [AliceLG](https://github.com/regcs/AliceLG) add-on or with some of my own code. These holograms were synced to the display, and the display played the pre-rendered movies. Power was supplied by a large battery bank, which was itself velcroed to the poster board. Nothing special about this battery bank, other than it was the biggest one I could buy and it could output up to 60 W over USB-C power delivery.
+
+That's the short description of everything that went into the poster. If you want to read on more about the thought process that went into creating it, continue on below.
 
 # Give me every detail
 
-This was an idea that has been bouncing around inside my head for years. I am a structural biologist, and the field we work in is blessed that our data is usually just _beautiful_ to look at. Even with some of the earliest rendering techniques, the complexity, symmetry and otherworldiness of protein structures was an instant hook for so many structural biologists.
+This was an idea that has been bouncing around inside my head for years. I am a structural biologist, and the field we work in is blessed that our data is usually just *beautiful* to look at. Even with some of the earliest rendering techniques, the complexity, symmetry and otherworldiness of protein structures was an instant hook for so many structural biologists.
 
-With academic posters, so much of creating a good poster is getting attendees to pay attention. You can’t tell colleagues about all of the cool research that you are doing, if nobody comes over to actually look at your poster in the first place. To this end, there is a lot of great resources about what goes in to making a great poster. If you are interested in making better posters, I would recommend the blog [Better Posters](http://betterposters.blogspot.com) as the best starting point. My own personal philosophy is that _less is more_. The best posters have minimal or no text at all. Figures reign supreme when it comes to making a poster. Even then, you don’t want to overwhelm viewers by packing in too many figures. Focus on the ones that support your key message and go with them, leave the rest for the paper.
+With academic posters, so much of creating a good poster is getting attendees to pay attention. You can't tell colleagues about all of the cool research that you are doing, if nobody comes over to actually look at your poster in the first place. To this end, there is a lot of great resources about what goes in to making a great poster. If you are interested in making better posters, I would recommend the blog [Better Posters](http://betterposters.blogspot.com) as the best starting point. My own personal philosophy is that *less is more*. The best posters have minimal or no text at all. Figures reign supreme when it comes to making a poster. Even then, you don't want to overwhelm viewers by packing in too many figures. Focus on the ones that support your key message and go with them, leave the rest for the paper.
 
 In making my first couple of academic posters, I felt hindered in terms of describing large protein structures. They are an inherently 3D thing. Reducing them down to a 3D image is difficult. Depth-cueing with fog, cropping the specific areas and providing multiple views of the same thing are all ways to get around the limitations of 2D to describe a complex 3D molecule.
 
-Others had previously used techniques like red / blue 3D, where the viewers can don 3D glasses to view the structure. This works with limited success. It limits your viewers to the number of glasses your brought with you, colours don’t translate super well, and viewing angles are similarly limited.
+Others had previously used techniques like red / blue 3D, where the viewers can don 3D glasses to view the structure. This works with limited success. It limits your viewers to the number of glasses your brought with you, colours don't translate super well, and viewing angles are similarly limited.
 
-The most promising thing was looking at [_lenticular lenses_](https://en.wikipedia.org/wiki/Lenticular_lens). There were speciality sign printers who would do lenticular prints and ship you the print + lens to go on the poster, but this  was targeted to the similar idea as having a moving footballer on a collectible card. Having 3-4 conformations of a protein that would move as the viewer moved would be cool, but the price tag was too high for a PhD student on a budget, and the idea remained an idea.
+The most promising thing was looking at [*lenticular lenses*](https://en.wikipedia.org/wiki/Lenticular_lens). There were speciality sign printers who would do lenticular prints and ship you the print + lens to go on the poster, but this was targeted to the similar idea as having a moving footballer on a collectible card. Having 3-4 conformations of a protein that would move as the viewer moved would be cool, but the price tag was too high for a PhD student on a budget, and the idea remained an idea.
 
 ## Looking Glass Portrait
-Back in December 2020, there was a targeted ad on 
-Facebook for a kickstarter campaign. In this case the targeted advertising dollars paid off, they had nailed their audience and I [pledged immediately](https://www.kickstarter.com/projects/lookingglass/looking-glass-portrait).
 
-With shipping delays related to global microchip shortages and that one boat blocking that one canal_, it was a while before I finally got hands on with the display. I was unsure how the effect would translate to real life, as the 3D wasn’t immediately obvious when viewing through a video on a regular screen. When I finally got it, it worked great and I played around with a number of 
+Back in December 2020, there was a targeted ad on Facebook for a kickstarter campaign. In this case the targeted advertising dollars paid off, they had nailed their audience and I [pledged immediately](https://www.kickstarter.com/projects/lookingglass/looking-glass-portrait).
+
+With shipping delays related to global microchip shortages and that one boat blocking that one canal\_, it was a while before I finally got hands on with the display. I was unsure how the effect would translate to real life, as the 3D wasn't immediately obvious when viewing through a video on a regular screen. When I finally got it, it worked great and I played around with a number of different protein models. Looking Glass advertises on their site that it should work with PyMol 'out of the box'. I tried a couple of times but never got it to work properly. It was no great loss as I don't use PyMol these days anyway.
+
+Once I started to develop my Blender add-on [Molecular Nodes](https://github.com/bradyajohnston/MolecularNodes) more, I also created a number of holograms for the display. There were super fun to play around with and rendering for a 3D display in comparison to 2D flat image (along with limitations for resolution) was a fun little challenge. Over the past year or so I have been rendering more and more holograms for the display and building up a sizable collection. which I used for display on the poster itself.
+
+I've had the idea for sticking the display on a poster for quite a while, but just needed a chance to do it. I ended up going to a bunch of conferences and workshops, but I was giving talks at all of them. I brought along the display and showed smaller groups of people after the talks what it could do, with a lot of amazement for the different renderings that were possible.
+
+With registering for IUCr2023 coming up, I registered and was happy to have gotten a poster over a talk. It was finally a chance to try out this idea and see if I could pull it off.
+
+## Designing a Poster
+
+I start all of my posters by sketching pen on paper. I enjoy blocking out several different potential designs, thinking about how the story will flow across the page and what kind of eye-catching graphics can go where, to try and draw people in. In this case, I started with a blocks drawn out for the iPad and the LGP. I figured they should probably go in the same area, with other information going around it.
+
+I settled on a design that would have an introduction & broad overview of the add-on across the top, an eye-catching figure & displays in the middle, with some more details on nodes and a wrap-up towards the bottom.
