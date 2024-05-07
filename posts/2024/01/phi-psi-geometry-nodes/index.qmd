@@ -1,0 +1,75 @@
+---
+title: "Calculating Phi & Psi in Geometry Nodes"
+subtitle: Torsion angle calculations for visualisation and animation
+author: Brady Johnston
+jupyter: python3
+---
+
+## Vector Math
+
+## Angle Between two Vectors in 3D
+
+To calculate the a dihedral, we have to be able to calculate the angle between two vectors in 3D space.
+This can be done with the following equation:
+
+$$
+\theta = \cos^{-1}{\frac{{\vec{A}}\cdotp{\vec{B}}}{|\vec{A}||\vec{B}|}}
+$$
+
+If you are a little rusty with you mathematical notation, $\vec{A}$ means 'vector A', $|\vec{A}|$ means the length of vector A, the small dot between them means 'dot product'.
+
+1.  Dot product of vectors $\vec{A}$ and $\vec{B}$, which gives a single number between -1 and 1.
+2.  Divide this by the product of the length of each vector ($|\vec{A}| * |\vec{B}|$)
+3.  Get the angle by calculating $cos^{-1}$ of the resulting number
+
+![](images/CleanShot%202024-01-23%20at%2009.02.25@2x.png)
+
+If both vectors are normalised, then length & division steps are not needed.
+I like this approach a bit better because the resulting node group is cleaner.
+
+A normalised vector can be denoted with double lines $||\vec{A}||$, which means the original vector has been scaled to have a length of exactly 1.
+
+$$
+\theta = \cos^{-1}(||\vec{A}||\cdotp||\vec{B}||)
+$$
+
+![](images/CleanShot%202024-01-23%20at%2009.03.55@2x.png)
+
+This just gives an absolute angle between two 3D vectors.
+What if we wanted the angle to be 'clockwise' or 'counter-clockwise', based on some reference axis?
+
+## Angle between two vectors, along an axis
+
+This first requires us to to get the vectors which are *perpendicular* to the axis.
+Then we can calculate the angle between the two vectors, which will give the rotation around the axis.
+To determine whether this rotation is 'clockwise' (positive) or 'counter-clockwise' (negative) we need to do an extra step.
+
+For this calculation we will require four vectors, $\vec{A}$, $\vec{B}$, $\vec{C}$, $\vec{D}$.
+This will represent 4 points with 3 vectors between the points.
+the vectors between the points will be denoted as $\vec{AB} = \mathbf{i}$, $\vec{BC} = \mathbf{j}$, $\vec{CD} = \mathbf{k}$.
+
+While we can calculate the angle between $\mathbf{i}$ and $\mathbf{k}$, to get just the angle in terms of rotation around the axis $\mathbf{j}$, we first need to get 'vector rejection' of $\mathbf{i}$ and $\mathbf{k}$ from the axis $\mathbf{j}$.
+This will be denoted as $\mathbf{i}_{\perp \mathbf{j}}$ and $\mathbf{k}_{\perp \mathbf{j}}$.
+These can be computed by first projecting the vectors onto the axis, then subtracting the projected vector from the original vector.
+
+To get the 'sign' or 'clockwise / anti-clockwise' direction of the angle, we compute the cross product of the two vectors, get the dot product with the axis, and if this value is less than 0 it's negative (anti-clockwise), otherwise it's positive (clockwise).
+
+$$
+\theta = \cos^{-1}({||\mathbf{i}_{\perp \mathbf{j}}||{\cdotp{||\mathbf{k}_{\perp \mathbf{j}}}}||})
+$$
+
+$$
+Angle = sgn(\mathbf{i}_{\perp \mathbf{j}}\times\mathbf{k}_{\perp \mathbf{j}}\cdot\mathbf{j}) * \theta
+$$
+
+![The final node group which calculates the angle of two vectors, when 'looking' down an axis.](images/CleanShot%202024-01-23%20at%2012.03.05@2x.png){fig-alt="A screenshot of a node graph from Blender's Geometry Nodes, which shows a number of vector match and function nodes, which will calculate the angle between two vectors along an axis."}
+
+## What are torsion angles?
+
+Lets start here, because I was still a little shaky with what 𝝫 (Phi) and 𝞇 (Psi) really were (or which greek symbol was which).
+I still have trouble with remembering which is which (Psi looks a bit like a trident, which is held by **P**o**S**e**I**don).
+
+In structural biology, phi & psi angles important metrics when checking how well the model is built, and how 'real' it might be.
+In protein secondary structure.
+
+Before we get too into the weeds, what is actually being measured here?
