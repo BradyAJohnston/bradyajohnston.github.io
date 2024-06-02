@@ -15,20 +15,10 @@ about:
       href: https://github.com/bradyajohnston
 ---
 
-I'm Brady and I'm a (very close to finishing) PhD student, working on novel RNA binding proteins using structural biology and biophysics.
-I have a passion for compelling data visualisation of complex topics, usually in biology.
+I'm Brady and I'm interested in data compelling visualisation. I specialise in molecular animation, and created the [Molecular Nodes](https://bradyajohnston.github.io/MolecularNodes) add-on for Blender. I've released it 100% free and open source to help others also improve their molecular visualisation.
 
-I'm a self-taught and devout R coder, committed to improving the speed, accuracy and reproducibility of basic wet-lab research and it's analysis.
-I currently have two packages available for download from CRAN, and a couple more on the way - check out my [GitHub](https://github.com/bradyajohnston) for details.
+I'm a self taught coder & 3D-artist, having picked up both during my PhD in structural biology & biophysics, and now teach others the same on my [YouTube Channel](https://youtube.com/c/bradyjohnston).
 
-I'm also a self-taught 3D artist using [Blender](https://blender.org) for visualisation of proteins, and I teach other interested biochemists over on my [YouTube channel](https://youtube.com/c/bradyjohnston).
+Check out my 2022 Blender conference talk on exactly these topics!
 
-<video width="100%"  autoplay loop>
-
-<source src="https://thumbs.gfycat.com/JointSlimyAidi-mobile.mp4" type="video/mp4">
-
-</video>
-
-<center>
-*protein motor go brrrrrr* ([7CGO](https://www.ebi.ac.uk/pdbe/entry/pdb/7cgo))
-</center>
+<iframe width="700" height="394" src="https://www.youtube.com/embed/adhTmwYwOiA?si=j883f1GPpXsHcEpJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
