@@ -4,15 +4,18 @@ image: img/headshot.png
 about:
   template: jolla
   links:
+    - icon: cloud
+      text: BlueSky
+      href: https://bsky.app/profile/bradyajohnston.bsky.social
     - icon: twitter
       text: Twitter
       href: https://twitter.com/bradyajohnston
-    - icon: youtube
-      text: YouTube
-      href: https://youtube.com/c/bradyjohnston
     - icon: github
       text: Github
       href: https://github.com/bradyajohnston
+    - icon: youtube
+      text: YouTube
+      href: https://youtube.com/c/bradyjohnston
 ---
 
 I'm Brady and I'm interested in data compelling visualisation. I specialise in molecular animation, and created the [Molecular Nodes](https://bradyajohnston.github.io/MolecularNodes) add-on for Blender. I've released it 100% free and open source to help others also improve their molecular visualisation.
