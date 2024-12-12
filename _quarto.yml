@@ -10,7 +10,8 @@ website:
       - about.qmd
       - text: "Blog"
         href: index.qmd
-      - molecular-nodes.qmd
+      - text: "Molecular Nodes"
+        href: https://bradyajohnston.github.io/MolecularNodes
     left:
       - icon: github
         href: https://github.com/bradyajohnston
@@ -21,7 +22,7 @@ website:
 format:
   html:
     theme: 
-      light: flatly
+      light: yeti
       dark: darkly
     css: styles.css
 

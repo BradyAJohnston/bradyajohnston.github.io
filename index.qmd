@@ -1,6 +1,7 @@
 ---
 title: "Brady Johnston"
 listing:
+  id: posts
   contents: posts
   sort: "date desc"
   type: grid
@@ -8,3 +9,8 @@ listing:
 page-layout: full
 title-block-banner: true
 ---
+
+Haven't posted anything here in a while...
+
+::: {#posts}
+:::
