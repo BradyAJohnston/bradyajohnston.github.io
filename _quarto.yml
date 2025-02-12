@@ -4,6 +4,7 @@ project:
 
 website:
   title: "Brady's Blog"
+  google-analytics: G-T4ZHBLFMQF
 
   navbar:
     right: 
