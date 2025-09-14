@@ -352,8 +352,21 @@ gtag('config', 'G-T4ZHBLFMQF', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#im-brady" id="toc-im-brady" class="nav-link active" data-scroll-target="#im-brady">I’m Brady!</a></li>
+  <li><a href="#molecular-nodes" id="toc-molecular-nodes" class="nav-link" data-scroll-target="#molecular-nodes">Molecular Nodes</a></li>
+  <li><a href="#add-on-a-python-package" id="toc-add-on-a-python-package" class="nav-link" data-scroll-target="#add-on-a-python-package">Add-on &amp; a Python Package?</a></li>
+  <li><a href="#building-distributing-mn" id="toc-building-distributing-mn" class="nav-link" data-scroll-target="#building-distributing-mn">Building &amp; Distributing MN</a></li>
+  <li><a href="#useful-actions" id="toc-useful-actions" class="nav-link" data-scroll-target="#useful-actions">Useful Actions</a></li>
+  <li><a href="#distributing-your-own-extensions" id="toc-distributing-your-own-extensions" class="nav-link" data-scroll-target="#distributing-your-own-extensions">Distributing your own Extensions</a></li>
+  <li><a href="#how-is-it-built" id="toc-how-is-it-built" class="nav-link" data-scroll-target="#how-is-it-built">How is it Built?</a></li>
+  <li><a href="#how-is-it-built-1" id="toc-how-is-it-built-1" class="nav-link" data-scroll-target="#how-is-it-built-1">How is it built?</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -398,22 +411,42 @@ gtag('config', 'G-T4ZHBLFMQF', { 'anonymize_ip': true});
 <section id="molecular-nodes" class="level2">
 <h2 class="anchored" data-anchor-id="molecular-nodes">Molecular Nodes</h2>
 <p>quick overview of MN - show talk from last year etc some fun example videos</p>
+<!-- will only appear in blogpost -->
 </section>
-<section id="an-add-on-as-a-python-package" class="level2">
-<h2 class="anchored" data-anchor-id="an-add-on-as-a-python-package">An add-on as a python package?</h2>
-<div id="e0b093de" class="cell" data-output-location="fragment" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> molecularnodes <span class="im">as</span> mn</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>canvas <span class="op">=</span> mn.Canvas(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    engine<span class="op">=</span>mn.scene.Cycles(samples<span class="op">=</span><span class="dv">16</span>),</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    resolution<span class="op">=</span>(<span class="dv">600</span>, <span class="dv">300</span>),</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    transparent<span class="op">=</span><span class="va">True</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>mol <span class="op">=</span> mn.Molecule.fetch(<span class="st">"1BNA"</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>mol.add_style(<span class="st">"vdw"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>canvas.frame_view(mol, (<span class="fl">3.14</span>, <span class="fl">3.14</span> <span class="op">/</span> <span class="dv">2</span>, <span class="dv">0</span>))</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>canvas.snapshot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="add-on-a-python-package" class="level2">
+<h2 class="anchored" data-anchor-id="add-on-a-python-package">Add-on &amp; a Python Package?</h2>
+<blockquote class="blockquote">
+<p>It’s less likely than you’d think!</p>
+</blockquote>
+<p>Creating an add-on for Blender that can also be built and shipping as a python package was quite the task. It leads to a variety of problems and strange engineering issues that come with writing code for Blender that a ‘regular’ python package wouldn’t have to deal with.</p>
+<p>Covering that topic with all of our learnings would be a massive blog post itself. The short version is that you can install molecularnodes from <a href="https://pypi.org/p/molecularnodes"><code>pypi</code></a> and use if for molecular rendering in python scripts of jupyter notebooks like this one.</p>
+<div id="cell-fig-dna" class="cell" data-output-location="slide" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># !pip install bpy molecularnodes</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> molecularnodes <span class="im">as</span> mn</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>canvas <span class="op">=</span> mn.Canvas(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    engine<span class="op">=</span>mn.scene.Cycles(samples<span class="op">=</span><span class="dv">16</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    resolution<span class="op">=</span>(<span class="dv">1280</span>, <span class="dv">720</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    transparent<span class="op">=</span><span class="va">True</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>mol <span class="op">=</span> mn.Molecule.fetch(<span class="st">"1BNA"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>mol.add_style(<span class="st">"vdw"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>canvas.frame_view(mol, (<span class="fl">3.14</span>, <span class="fl">3.14</span> <span class="op">/</span> <span class="dv">2</span>, <span class="dv">0</span>))</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>canvas.snapshot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="fig-dna" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-dna-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: X-ray crystallography structure of a fragment of DNA.
+</figcaption>
+</figure>
+</div>
+</div>
 </div>
 </section>
 <section id="building-distributing-mn" class="level2">
@@ -513,6 +546,7 @@ gtag('config', 'G-T4ZHBLFMQF', { 'anonymize_ip': true});
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">render</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
 <span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">env</span><span class="kw">:</span></span>
 <span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">GITHUB_TOKEN</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<!-- will only appear in blogpost -->
 
 
 </section>
