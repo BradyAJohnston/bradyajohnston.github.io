@@ -4,7 +4,9 @@ author: Brady Johnston
 date: 2025-09-20
 format: revealjs
 theme: dracula
-cache: true
+execute: 
+  freeze: true
+  cache: true
 ---
 
 
@@ -21,11 +23,11 @@ some fun example videos
 
 ```{python}
 #| echo: true
-#| output-location: column
+#| output-location: fragment
 import molecularnodes as mn
 canvas = mn.Canvas(
     engine=mn.scene.Cycles(samples=16),
-    resolution=(300, 400),
+    resolution=(600, 300),
     transparent=True
     )
 
