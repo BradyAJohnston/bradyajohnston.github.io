@@ -2,5 +2,143 @@
 title: Extensions on GitHub
 author: Brady Johnston
 date: 2025-09-20
+format: revealjs
+theme: dracula
+cache: true
 ---
 
+
+## I’m Brady!
+intro about me
+
+## Molecular Nodes
+quick overview of MN - show talk from last year etc
+some fun example videos
+
+
+
+## An add-on as a python package?
+
+```{python}
+#| echo: true
+#| output-location: column
+import molecularnodes as mn
+canvas = mn.Canvas(
+    engine=mn.scene.Cycles(samples=16),
+    resolution=(300, 400),
+    transparent=True
+    )
+
+mol = mn.Molecule.fetch("1BNA")
+mol.add_style("vdw")
+
+canvas.frame_view(mol, (3.14, 3.14 / 2, 0))
+canvas.snapshot()
+```
+
+## Building & Distributing MN
+tested and built in GitHub actions
+example yaml
+
+## Useful Actions
+setup-blender
+build and distribute documentation
+
+## Distributing your own Extensions
+Details and built: https://bradyajohnston.github.io/extensions/
+Subscribe with:
+
+```bash
+https://bradyajohnston.github.io/extensions/index.json
+```
+
+
+
+## How is it Built?
+
+```yaml
+name: Download Release Files
+
+on:
+  push:
+    branches: ["main"]
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build-website:
+    runs-on: macos-14
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v4
+      - uses: quarto-dev/quarto-actions/setup@v2
+      - uses: bradyajohnston/setup-blender@v2.1
+        with: 
+          version: 4.3.2
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+            version: "latest"
+    
+      - name: Get Release Assets
+        run: |
+          uv run --with requests scripts/download.py
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: Generate index.json
+        run: |
+            blender --command extension server-generate --repo-dir=repo
+    
+      - name: Quarto Render
+        run: |
+          uv run --with pyyaml quarto render
+    
+      - name: Publish to GitHub Pages (and render)
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+            target: gh-pages
+            path: .
+            render: false
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+## How is it built?
+
+```yaml
+name: Download Release Files
+
+on:
+  push:
+    branches: ["main"]
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build-website:
+    runs-on: macos-14
+    permissions: write-all
+    steps:
+      - uses: bradyajohnston/setup-blender@v2.1
+        with: 
+          version: 4.3.2
+      - name: Get Release Assets
+        run: |
+          uv run --with requests scripts/download.py
+      - name: Generate index.json
+        run: |
+            blender --command extension server-generate --repo-dir=repo
+    
+      - name: Quarto Render
+        run: |
+          uv run --with pyyaml quarto render
+    
+      - name: Publish to GitHub Pages (and render)
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+            target: gh-pages
+            path: .
+            render: false
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```

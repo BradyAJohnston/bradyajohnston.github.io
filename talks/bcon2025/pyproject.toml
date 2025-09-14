@@ -1,0 +1,12 @@
+[project]
+name = "bcon2025"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "bpy>=4.5.3",
+    "jupyter>=1.1.1",
+    "molecularnodes>=4.5.1",
+    "quarto-cli>=1.8.24",
+]
