@@ -14,6 +14,8 @@ website:
       - text: "Molecular Nodes"
         icon: arrow-up-short
         href: https://bradyajohnston.github.io/MolecularNodes
+      - text: "Talks"
+        href: talks/index.qmd
     left:
       - icon: github
         href: https://github.com/bradyajohnston
