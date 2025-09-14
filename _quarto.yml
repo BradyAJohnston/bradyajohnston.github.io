@@ -7,6 +7,7 @@ execute:
 website:
   title: "Brady's Blog"
   google-analytics: G-T4ZHBLFMQF
+  draft-mode: unlinked
 
   navbar:
     right: 

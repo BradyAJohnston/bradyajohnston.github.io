@@ -4,6 +4,8 @@ author: Brady Johnston
 date: 2025-09-20
 format: revealjs
 theme: dracula
+draft-mode: unlinked
+draft: true
 execute: 
   freeze: true
   cache: true
