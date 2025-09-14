@@ -7,12 +7,28 @@ format:
   revealjs: 
     theme: dracula
     output-file: slides.html
+toc: true
+
 draft: true
 execute: 
   freeze: auto
   cache: true
-  eval: false
 ---
+
+:::: {.content-visible when-format="revealjs"}
+<!-- will only appear in slides -->
+## Contents
+
+::: {.fragment}
+- Who am I and what is Molecular Nodes?
+:::
+::: {.fragment}
+- Add-on Development on Github
+:::
+::: {.fragment}
+- Add-on Distribution on GitHub
+:::
+::::
 
 ## I’m Brady!
 
@@ -36,17 +52,42 @@ Will only appear in HTML.
 quick overview of MN - show talk from last year etc
 some fun example videos
 
+::: {.content-visible when-format="revealjs"}
+<!-- will only appear in slides -->
+:::
 
+::: {.content-visible unless-format="revealjs"}
+<!-- will only appear in blogpost -->
+:::
 
-## An add-on as a python package?
+## Add-on & a Python Package?
+
+::: {.content-visible when-format="revealjs"}
+<!-- will only appear in slides -->
+:::
+
+::: {.content-visible unless-format="revealjs"}
+> It's less likely than you'd think!
+
+Creating an add-on for Blender that can also be built and shipping as a python package was quite the task. 
+It leads to a variety of problems and strange engineering issues that come with writing code for Blender that a 'regular' python package wouldn't have to deal with. 
+
+Covering that topic with all of our learnings would be a massive blog post itself. 
+The short version is that you can install molecularnodes from [`pypi`](https://pypi.org/p/molecularnodes) and use if for molecular rendering in python scripts of jupyter notebooks like this one.
+
+:::
 
 ```{python}
 #| echo: true
-#| output-location: fragment
+#| label: fig-dna
+#| fig-cap: X-ray crystallography structure of a fragment of DNA.
+#| output-location: slide
+# !pip install bpy molecularnodes
+
 import molecularnodes as mn
 canvas = mn.Canvas(
     engine=mn.scene.Cycles(samples=16),
-    resolution=(600, 300),
+    resolution=(1280, 720),
     transparent=True
     )
 
@@ -163,3 +204,11 @@ jobs:
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+::: {.content-visible when-format="revealjs"}
+<!-- will only appear in slides -->
+:::
+
+::: {.content-visible unless-format="revealjs"}
+<!-- will only appear in blogpost -->
+:::
