@@ -2,6 +2,9 @@ project:
   type: website
   output-dir: "docs"
 
+execute: 
+  freeze: auto
+
 website:
   title: "Brady's Blog"
   google-analytics: G-T4ZHBLFMQF
