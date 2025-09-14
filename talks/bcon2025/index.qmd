@@ -2,33 +2,29 @@
 title: Extensions on GitHub
 author: Brady Johnston
 date: 2025-09-20
-format: 
-  html: default
-  revealjs: 
-    theme: dracula
-    output-file: slides.html
-toc: true
-
 draft: true
+toc: true
+toc-depth: 1
+format: 
+  revealjs: 
+    theme: [dracula, theme.scss]
+    output-file: slides.html
+  html: default
+
 execute: 
-  freeze: auto
   cache: true
+  eval: true
 ---
 
-:::: {.content-visible when-format="revealjs"}
-<!-- will only appear in slides -->
-## Contents
+::: {.content-visible unless-format="revealjs"}
 
-::: {.fragment}
-- Who am I and what is Molecular Nodes?
+This information was presented for the 2025 Blender conference. Recording of the talk can be found here and the slides are also available here.
+
+{{< revealjs "slides.html" >}}
+
 :::
-::: {.fragment}
-- Add-on Development on Github
-:::
-::: {.fragment}
-- Add-on Distribution on GitHub
-:::
-::::
+
+# Who am I?
 
 ## I’m Brady!
 
@@ -42,23 +38,43 @@ execute:
 
 <iframe id="ytplayer" type="text/html" width="800" height="450" src="https://www.youtube.com/embed/adhTmwYwOiA?autoplay=1?mute=1&origin=http://bradyajohnston.github.io" frameborder="0"></iframe>
 
-::: {.content-visible unless-format="revealjs"}
 
-Will only appear in HTML.
-
-:::
-
-## Molecular Nodes
-quick overview of MN - show talk from last year etc
-some fun example videos
+## Molecular Nodes {background-video="https://imgur.com/IvMSiE1.mp4" background-video-loop="true" background-video-muted="true"}
 
 ::: {.content-visible when-format="revealjs"}
 <!-- will only appear in slides -->
+- Import & Animation of molecular data sets
+- Brings data inside of Blender
+- Builds around Geometry Nodes
 :::
 
-::: {.content-visible unless-format="revealjs"}
+
+:::: {.content-visible unless-format="revealjs"}
 <!-- will only appear in blogpost -->
+
+
+This hasn't been the first attempt at bringing molecular data sets into Blender, but I blieve it has so far been the most successful.
+In a very short summary, we can think of atoms and molecules as a collection of vertices and edges.
+Blender knows how to handle vertices and edges. Once we have the data inside of Blender (along with a large number of 'molecular' attributes for points and edges) then the full power of Geometry Nodes is at our fingertips for molecular visualisation.
+
+::: {#fig-clathrin}
+<video src="https://imgur.com/IvMSiE1.mp4" width="100%" autoplay controls muted loop></video>
+
+
+A clathrin protein cage appearing, or summoning a protein via a DNA circle.
+
 :::
+<video src="https://imgur.com/h0taqfP.mp4" width="100%" autoplay controls muted loop></video>
+::::
+
+::: {.content-visible when-format="revealjs"}
+## Molecular Nodes
+<!-- will only appear in slides -->
+:::
+
+<video src="https://imgur.com/trg0voP.mp4" width="100%" autoplay controls muted loop></video>
+
+
 
 ## Add-on & a Python Package?
 
@@ -82,6 +98,7 @@ The short version is that you can install molecularnodes from [`pypi`](https://p
 #| label: fig-dna
 #| fig-cap: X-ray crystallography structure of a fragment of DNA.
 #| output-location: slide
+#| code-line-numbers: "|3-8|10-11|13-14"
 # !pip install bpy molecularnodes
 
 import molecularnodes as mn
@@ -98,13 +115,95 @@ canvas.frame_view(mol, (3.14, 3.14 / 2, 0))
 canvas.snapshot()
 ```
 
-## Building & Distributing MN
-tested and built in GitHub actions
-example yaml
+# Building on GitHub
 
-## Useful Actions
+::: {.content-visible when-format="revealjs"}
+## Molecular Nodes on GitHub
+![](https://imgur.com/FSdfKNs.png)
+:::
+
+## Why build on GitHub?
+
+::: {.content-visible when-format="revealjs"}
+:::: {.fragment}
+- Not paid at all, just benefited a lot from using it
+::::
+:::: {.fragment}
+- Free file hosting (within 'reason')
+::::
+:::: {.fragment}
+- Free compute for automated testing and deployment (public projects)
+::::
+:::: {.fragment}
+- Increased visibility [(>1,000 ⭐️!)]{.fragment}[(not guaranteed)]{.fragment}
+::::
+:::
+
+
+## Building & Distributing MN
+
+![](https://imgur.com/I4ky42g.png)
+
+## Building & Distributing MN
+
+- Run tests against different versions of Blender (including daily builds)
+- Run tests against `bpy` installed via `pip` for automated pipelines
+- Download and bundle `.whl` files with extension
+- Upload extension to GitHub & Extensions platform
+
+## Running Tests
+
+::: {.bigyaml}
+
+```{.yml code-line-numbers="|3-7|9-16|19|20-22|23-35"}
+name: tests
+
+on: 
+    push:
+      branches: ["main"]
+    pull_request:
+      branches: ["*"]
+    
+jobs:
+    blender:
+        runs-on: ${{ matrix.os }}
+        strategy:
+            max-parallel: 4
+            fail-fast: false
+            matrix:
+              version: ["4.5", "daily"]
+              os: [ubuntu-latest, macos-latest, windows-latest]
+        steps:
+            - uses: actions/checkout@v4
+            - uses: BradyAJohnston/setup-blender@v3
+              with:
+                version: ${{ matrix.version }}
+            - name: Install in Blender
+              run: |
+                blender -b -P tests/python.py -- -m pip install ".[test]"
+            - name: Run Tests
+              run: |
+                blender -b -P tests/run.py -- -vv tests --cov --cov-report=xml
+    
+            - name: Expose coverage as a CI download 
+              uses: actions/upload-artifact@v4
+              if: matrix.os == 'ubuntu-latest' && matrix.version == '4.2.5'
+              with:
+                name: coverage.xml
+                path: coverage.xml
+
+            - name: Upload coverage reports to Codecov
+              if: matrix.os == 'ubuntu-latest'
+              uses: codecov/codecov-action@v3
+```
+:::
+
+
+## Anatomy of a GitHub Action
 setup-blender
 build and distribute documentation
+
+# Distributing on GitHub
 
 ## Distributing your own Extensions
 Details and built: https://bradyajohnston.github.io/extensions/
@@ -204,6 +303,8 @@ jobs:
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+# A live example
 
 ::: {.content-visible when-format="revealjs"}
 <!-- will only appear in slides -->

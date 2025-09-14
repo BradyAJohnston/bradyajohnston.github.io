@@ -4,6 +4,9 @@ project:
 execute: 
   freeze: auto
 
+filters: 
+  - embedio
+
 website:
   title: "Brady's Blog"
   google-analytics: G-T4ZHBLFMQF
