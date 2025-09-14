@@ -7,62 +7,6 @@
     "text": "I’m Brady and I’m interested in compelling data visualisation. I specialise in biophysics & molecular animation, and created the Molecular Nodes add-on for Blender to help myself and others create easier and better molecular animations.\nI’m a self taught coder & 3D-artist, having picked up both during my PhD in structural biology & biophysics, and now teach others the same on my YouTube Channel.\nCheck out my 2022 Blender conference talk on exactly these topics!"
   },
   {
-    "objectID": "talks/bcon2025/index.html#im-brady",
-    "href": "talks/bcon2025/index.html#im-brady",
-    "title": "Extensions on GitHub",
-    "section": "I’m Brady!",
-    "text": "I’m Brady!\nintro about me"
-  },
-  {
-    "objectID": "talks/bcon2025/index.html#molecular-nodes",
-    "href": "talks/bcon2025/index.html#molecular-nodes",
-    "title": "Extensions on GitHub",
-    "section": "Molecular Nodes",
-    "text": "Molecular Nodes\nquick overview of MN - show talk from last year etc some fun example videos"
-  },
-  {
-    "objectID": "talks/bcon2025/index.html#an-add-on-as-a-python-package",
-    "href": "talks/bcon2025/index.html#an-add-on-as-a-python-package",
-    "title": "Extensions on GitHub",
-    "section": "An add-on as a python package?",
-    "text": "An add-on as a python package?\n\n\nimport molecularnodes as mn\ncanvas = mn.Canvas(\n    engine=mn.scene.Cycles(samples=16),\n    resolution=(300, 400),\n    transparent=True\n    )\n\nmol = mn.Molecule.fetch(\"1BNA\")\nmol.add_style(\"vdw\")\n\ncanvas.frame_view(mol, (3.14, 3.14 / 2, 0))\ncanvas.snapshot()"
-  },
-  {
-    "objectID": "talks/bcon2025/index.html#building-distributing-mn",
-    "href": "talks/bcon2025/index.html#building-distributing-mn",
-    "title": "Extensions on GitHub",
-    "section": "Building & Distributing MN",
-    "text": "Building & Distributing MN\ntested and built in GitHub actions example yaml"
-  },
-  {
-    "objectID": "talks/bcon2025/index.html#useful-actions",
-    "href": "talks/bcon2025/index.html#useful-actions",
-    "title": "Extensions on GitHub",
-    "section": "Useful Actions",
-    "text": "Useful Actions\nsetup-blender build and distribute documentation"
-  },
-  {
-    "objectID": "talks/bcon2025/index.html#distributing-your-own-extensions",
-    "href": "talks/bcon2025/index.html#distributing-your-own-extensions",
-    "title": "Extensions on GitHub",
-    "section": "Distributing your own Extensions",
-    "text": "Distributing your own Extensions\nDetails and built: https://bradyajohnston.github.io/extensions/ Subscribe with:\nhttps://bradyajohnston.github.io/extensions/index.json"
-  },
-  {
-    "objectID": "talks/bcon2025/index.html#how-is-it-built",
-    "href": "talks/bcon2025/index.html#how-is-it-built",
-    "title": "Extensions on GitHub",
-    "section": "How is it Built?",
-    "text": "How is it Built?\nname: Download Release Files\n\non:\n  push:\n    branches: [\"main\"]\n  schedule:\n    - cron: '0 0 * * *'\n\njobs:\n  build-website:\n    runs-on: macos-14\n    permissions: write-all\n    steps:\n      - uses: actions/checkout@v4\n      - uses: quarto-dev/quarto-actions/setup@v2\n      - uses: bradyajohnston/setup-blender@v2.1\n        with: \n          version: 4.3.2\n      - name: Install uv\n        uses: astral-sh/setup-uv@v4\n        with:\n            version: \"latest\"\n    \n      - name: Get Release Assets\n        run: |\n          uv run --with requests scripts/download.py\n        env:\n          GITHUB_TOKEN: ${{ github.token }}\n      - name: Generate index.json\n        run: |\n            blender --command extension server-generate --repo-dir=repo\n    \n      - name: Quarto Render\n        run: |\n          uv run --with pyyaml quarto render\n    \n      - name: Publish to GitHub Pages (and render)\n        uses: quarto-dev/quarto-actions/publish@v2\n        with:\n            target: gh-pages\n            path: .\n            render: false\n        env:\n            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
-  },
-  {
-    "objectID": "talks/bcon2025/index.html#how-is-it-built-1",
-    "href": "talks/bcon2025/index.html#how-is-it-built-1",
-    "title": "Extensions on GitHub",
-    "section": "How is it built?",
-    "text": "How is it built?\nname: Download Release Files\n\non:\n  push:\n    branches: [\"main\"]\n  schedule:\n    - cron: '0 0 * * *'\n\njobs:\n  build-website:\n    runs-on: macos-14\n    permissions: write-all\n    steps:\n      - uses: bradyajohnston/setup-blender@v2.1\n        with: \n          version: 4.3.2\n      - name: Get Release Assets\n        run: |\n          uv run --with requests scripts/download.py\n      - name: Generate index.json\n        run: |\n            blender --command extension server-generate --repo-dir=repo\n    \n      - name: Quarto Render\n        run: |\n          uv run --with pyyaml quarto render\n    \n      - name: Publish to GitHub Pages (and render)\n        uses: quarto-dev/quarto-actions/publish@v2\n        with:\n            target: gh-pages\n            path: .\n            render: false\n        env:\n            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
-  },
-  {
     "objectID": "molecular-nodes.html",
     "href": "molecular-nodes.html",
     "title": "Molecular Nodes",
@@ -228,7 +172,7 @@
     "href": "talks/index.html",
     "title": "Talks",
     "section": "",
-    "text": "Slides for talks that I give will go here in the future.\n\n\n\n\n\n\n\n\nExtensions on GitHub\n\n\n\n\n\n\nBrady Johnston\n\n\nSep 20, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "Slides for talks that I give will go here in the future.\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
