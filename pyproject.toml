@@ -9,5 +9,6 @@ dependencies = [
     "jupyter>=1.1.1",
     "jupyter-cache>=1.0.1",
     "molecularnodes>=4.5.1",
+    "pyyaml>=6.0.2",
     "quarto-cli>=1.8.24",
 ]

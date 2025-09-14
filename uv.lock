@@ -1914,6 +1914,7 @@ dependencies = [
     { name = "jupyter" },
     { name = "jupyter-cache" },
     { name = "molecularnodes" },
+    { name = "pyyaml" },
     { name = "quarto-cli" },
 ]
 
@@ -1923,6 +1924,7 @@ requires-dist = [
     { name = "jupyter", specifier = ">=1.1.1" },
     { name = "jupyter-cache", specifier = ">=1.0.1" },
     { name = "molecularnodes", specifier = ">=4.5.1" },
+    { name = "pyyaml", specifier = ">=6.0.2" },
     { name = "quarto-cli", specifier = ">=1.8.24" },
 ]
 
