@@ -29,14 +29,16 @@ jobs:
           version: "latest"
 
       - name: Install Python dependencies
-        run: uv sync
+        run: uv sync --all-extras
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
+      - name: Render Website
+        run: uv run quarto render
+        # uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
+          render: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
