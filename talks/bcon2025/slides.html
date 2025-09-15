@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Brady Johnston">
-  <meta name="dcterms.date" content="2025-09-20">
+  <meta name="dcterms.date" content="2025-09-19">
   <title>Brady's Blog – Extensions on GitHub</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -213,7 +213,7 @@ Brady Johnston
 </div>
 </div>
 
-  <p class="date">2025-09-20</p>
+  <p class="date">2025-09-19</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">Table of contents</h2>
@@ -221,7 +221,6 @@ Brady Johnston
 <li><a href="#/who-am-i" id="/toc-who-am-i">Who am I?</a></li>
 <li><a href="#/building-on-github" id="/toc-building-on-github">Building on GitHub</a></li>
 <li><a href="#/distributing-on-github" id="/toc-distributing-on-github">Distributing on GitHub</a></li>
-<li><a href="#/a-live-example" id="/toc-a-live-example">A live example</a></li>
 </ul>
 </nav>
 </section>
@@ -257,7 +256,7 @@ Brady Johnston
 <section id="add-on-a-python-package" class="slide level2">
 <h2>Add-on &amp; a Python Package?</h2>
 <!-- will only appear in slides -->
-<div id="cell-fig-dna" class="cell" data-execution_count="1">
+<div id="cell-fig-dna" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|3-8|10-11|13-14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="co"># !pip install bpy molecularnodes</span></span>
 <span id="cb1-2"><a></a></span>
 <span id="cb1-3"><a></a><span class="im">import</span> molecularnodes <span class="im">as</span> mn</span>
@@ -274,7 +273,7 @@ Brady Johnston
 <span id="cb1-14"><a></a>canvas.snapshot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-</section><section id="add-on-a-python-package-output" class="slide level2 output-location-slide"><h2>Add-on &amp; a Python Package?</h2><div class="cell output-location-slide" data-execution_count="1">
+</section><section id="add-on-a-python-package-output" class="slide level2 output-location-slide"><h2>Add-on &amp; a Python Package?</h2><div class="cell output-location-slide" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div id="fig-dna" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -302,6 +301,11 @@ Figure&nbsp;1: X-ray crystallography structure of a fragment of DNA.
 <div class="fragment">
 <ul>
 <li>Not paid at all, just benefited a lot from using it</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Other platforms offer similar (CodeBerg etc.) I just have experience with GitHub</li>
 </ul>
 </div>
 <div class="fragment">
@@ -475,13 +479,54 @@ Figure&nbsp;1: X-ray crystallography structure of a fragment of DNA.
 <span id="cb5-33"><a></a><span class="at">            </span><span class="fu">render</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
 <span id="cb5-34"><a></a><span class="at">        </span><span class="fu">env</span><span class="kw">:</span></span>
 <span id="cb5-35"><a></a><span class="at">            </span><span class="fu">GITHUB_TOKEN</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section></section>
-<section id="a-live-example" class="title-slide slide level1 center">
-<h1>A live example</h1>
+</section>
+<section id="a-live-example" class="slide level2">
+<h2>A live example</h2>
+<!-- will only appear in slides -->
+<p><a href="https://github.com/BradyAJohnston/monkeymadness">github.com/BradyAJohnston/monkeymadness</a></p>
+<div id="fig-monkey-madness" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-monkey-madness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<video src="https://imgur.com/rfPbaUi.mp4" heigh="70%" autoplay="" controls="" muted="" loop="">
+</video>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-monkey-madness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: The hottest new monkey-spawning add-on! (But is there a bug?)
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="your-personal-extensions-repo" class="slide level2">
+<h2>Your Personal Extensions Repo</h2>
+<div class="fragment">
+<ul>
+<li>Build and release add-ons on GitHub (through automations!) in their own repos</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Compile multiple add-ons in a single subscribeable repo</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Users add ‘your personal repo’ - they get updates just like they would from the official Extensions platform</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><a href="https://bradyajohnston.github.io/extensions">bradyajohnston.github.io/extensions</a></li>
+</ul>
+</div>
+</section>
+<section id="testing-your-add-ons" class="slide level2">
+<h2>Testing your Add-ons</h2>
+<p>Check out Spencer’s talk on testing add-ons:</p>
+
 <!-- will only appear in slides -->
 
 
-</section>
+<img data-src="./img/spencermtalk.png" class="quarto-figure quarto-figure-center r-stretch"></section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

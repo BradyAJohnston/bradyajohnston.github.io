@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Brady Johnston">
-<meta name="dcterms.date" content="2025-09-20">
+<meta name="dcterms.date" content="2025-09-19">
 
 <title>Extensions on GitHub – Brady’s Blog</title>
 <style>
@@ -367,7 +367,6 @@ gtag('config', 'G-T4ZHBLFMQF', { 'anonymize_ip': true});
   <li><a href="#who-am-i" id="toc-who-am-i" class="nav-link active" data-scroll-target="#who-am-i">Who am I?</a></li>
   <li><a href="#building-on-github" id="toc-building-on-github" class="nav-link" data-scroll-target="#building-on-github">Building on GitHub</a></li>
   <li><a href="#distributing-on-github" id="toc-distributing-on-github" class="nav-link" data-scroll-target="#distributing-on-github">Distributing on GitHub</a></li>
-  <li><a href="#a-live-example" id="toc-a-live-example" class="nav-link" data-scroll-target="#a-live-example">A live example</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
@@ -394,7 +393,7 @@ gtag('config', 'G-T4ZHBLFMQF', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 20, 2025</p>
+      <p class="date">September 19, 2025</p>
     </div>
   </div>
   
@@ -446,7 +445,7 @@ Figure&nbsp;1: A clathrin protein cage appearing, or summoning a protein via a D
 </blockquote>
 <p>Creating an add-on for Blender that can also be built and shipping as a python package was quite the task. It leads to a variety of problems and strange engineering issues that come with writing code for Blender that a ‘regular’ python package wouldn’t have to deal with.</p>
 <p>Covering that topic with all of our learnings would be a massive blog post itself. The short version is that you can install molecularnodes from <a href="https://pypi.org/p/molecularnodes"><code>pypi</code></a> and use if for molecular rendering in python scripts of jupyter notebooks like this one.</p>
-<div id="cell-fig-dna" class="cell" data-output-location="slide" data-execution_count="1">
+<div id="cell-fig-dna" class="cell" data-output-location="slide" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># !pip install bpy molecularnodes</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> molecularnodes <span class="im">as</span> mn</span>
@@ -635,12 +634,52 @@ Figure&nbsp;2: X-ray crystallography structure of a fragment of DNA.
 <span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">env</span><span class="kw">:</span></span>
 <span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">GITHUB_TOKEN</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
+<section id="a-live-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-live-example">A live example</h2>
+<div id="fig-monkey-madness" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-monkey-madness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<video src="https://imgur.com/rfPbaUi.mp4" heigh="70%" autoplay="" controls="" muted="" loop="">
+</video>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-monkey-madness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: The hottest new monkey-spawning add-on! (But is there a bug?)
+</figcaption>
+</figure>
+</div>
+<!-- will only appear in blogpost -->
+<p>This is a minimal example of an add-on we can subscribe to. <img src="https://imgur.com/bawxoLK.png" class="img-fluid"></p>
 </section>
-<section id="a-live-example" class="level1">
-<h1>A live example</h1>
+<section id="your-personal-extensions-repo" class="level2">
+<h2 class="anchored" data-anchor-id="your-personal-extensions-repo">Your Personal Extensions Repo</h2>
+<div class="fragment">
+<ul>
+<li>Build and release add-ons on GitHub (through automations!) in their own repos</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Compile multiple add-ons in a single subscribeable repo</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Users add ‘your personal repo’ - they get updates just like they would from the official Extensions platform</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><a href="https://bradyajohnston.github.io/extensions">bradyajohnston.github.io/extensions</a></li>
+</ul>
+</div>
+</section>
+<section id="testing-your-add-ons" class="level2">
+<h2 class="anchored" data-anchor-id="testing-your-add-ons">Testing your Add-ons</h2>
+<p>Checko out Spencer’s talk on testing add-ons <a href="https://docs.google.com/presentation/d/1fpKdehYaquHgWHV9NeWn7qkTfVRqRJMc7SklBTR4tmc/edit?slide=id.p#slide=id.p">here</a>.</p>
 <!-- will only appear in blogpost -->
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
