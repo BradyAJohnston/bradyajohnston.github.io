@@ -381,6 +381,31 @@ Figure&nbsp;1: X-ray crystallography structure of a fragment of DNA.
 <span id="cb2-39"><a></a><span class="at">              </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> codecov/codecov-action@v3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
+<section id="breaking-5.0-changes" class="slide level2">
+<h2>Breaking 5.0 Changes</h2>
+<p>Tests are run daily on MacOS, Windows &amp; Linux against the latest daily alpha builds from Blender.</p>
+<div class="fragment">
+<ul>
+<li><code>BLENDER_EEVEE_NEXT</code> renamed to <code>BLENDER_EEVEE</code> <a href="https://github.com/BradyAJohnston/MolecularNodes/pull/885">#855</a></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Slight change in volume -&gt; mesh <a href="https://github.com/BradyAJohnston/MolecularNodes/pull/897">#897</a></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Compositor no longer has <code>use_nodes</code> <a href="https://github.com/BradyAJohnston/MolecularNodes/pull/971">#971</a></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><code>Set Curve Resolution</code> not updating datablock <a href="https://projects.blender.org/blender/blender/issues/141721#issuecomment-1625189">#141721</a></li>
+</ul>
+</div>
+<!-- will only appear in slides -->
+</section>
 <section id="anatomy-of-a-github-action" class="slide level2">
 <h2>Anatomy of a GitHub Action</h2>
 <p>setup-blender build and distribute documentation</p>
