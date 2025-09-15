@@ -1,7 +1,7 @@
 ---
 title: Extensions on GitHub
 author: Brady Johnston
-date: 2025-09-20
+date: 2025-09-19
 draft: true
 toc: true
 toc-depth: 1
@@ -59,6 +59,7 @@ Blender knows how to handle vertices and edges. Once we have the data inside of 
 
 ::: {#fig-clathrin}
 <video src="https://imgur.com/IvMSiE1.mp4" width="100%" autoplay controls muted loop></video>
+
 
 
 A clathrin protein cage appearing, or summoning a protein via a DNA circle.
@@ -127,6 +128,9 @@ canvas.snapshot()
 ::: {.content-visible when-format="revealjs"}
 :::: {.fragment}
 - Not paid at all, just benefited a lot from using it
+::::
+:::: {.fragment}
+- Other platforms offer similar (CodeBerg etc.) I just have experience with GitHub
 ::::
 :::: {.fragment}
 - Free file hosting (within 'reason')
@@ -304,7 +308,60 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-# A live example
+## A live example
+
+
+::: {.content-visible when-format="revealjs"}
+<!-- will only appear in slides -->
+[github.com/BradyAJohnston/monkeymadness](https://github.com/BradyAJohnston/monkeymadness)
+:::
+
+:::: {#fig-monkey-madness}
+
+<video src="https://imgur.com/rfPbaUi.mp4" heigh="70%" autoplay controls muted loop></video>
+
+The hottest new monkey-spawning add-on! (But is there a bug?)
+
+::::
+
+::: {.content-visible unless-format="revealjs"}
+<!-- will only appear in blogpost -->
+
+
+
+This is a minimal example of an add-on we can subscribe to.
+![](https://imgur.com/bawxoLK.png)
+
+:::
+
+
+## Your Personal Extensions Repo
+::: {.fragment}
+- Build and release add-ons on GitHub (through automations!) in their own repos
+:::
+::: {.fragment}
+- Compile multiple add-ons in a single subscribeable repo
+:::
+::: {.fragment}
+- Users add 'your personal repo' - they get updates just like they would from the official Extensions platform
+:::
+::: {.fragment}
+- [bradyajohnston.github.io/extensions](https://bradyajohnston.github.io/extensions)
+:::
+
+
+## Testing your Add-ons
+
+::: {.content-visible when-format="revealjs"}
+Check out Spencer's talk on testing add-ons: 
+
+![](./img/spencermtalk.png){fig-align="center"}
+:::
+
+::: {.content-visible unless-format="revealjs"}
+Checko out Spencer's talk on testing add-ons [here](https://docs.google.com/presentation/d/1fpKdehYaquHgWHV9NeWn7qkTfVRqRJMc7SklBTR4tmc/edit?slide=id.p#slide=id.p).
+:::
+
 
 ::: {.content-visible when-format="revealjs"}
 <!-- will only appear in slides -->
