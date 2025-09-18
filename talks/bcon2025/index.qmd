@@ -79,11 +79,13 @@ A clathrin protein cage appearing, or summoning a protein via a DNA circle.
 
 
 
-## Add-on & a Python Package?
+## Install as a python package?
 
 ::: {.content-visible when-format="revealjs"}
 <!-- will only appear in slides -->
+- Also built and distributed via [`pypi.org`](https://pypi.org/p/molecularnodes)
 :::
+
 
 ::: {.content-visible unless-format="revealjs"}
 > It's less likely than you'd think!
@@ -101,7 +103,7 @@ The short version is that you can install molecularnodes from [`pypi`](https://p
 #| label: fig-dna
 #| fig-cap: X-ray crystallography structure of a fragment of DNA.
 #| output-location: slide
-#| code-line-numbers: "|3-8|10-11|13-14"
+#| code-line-numbers: "|3-8|10-11|13-14|"
 # !pip install bpy molecularnodes
 
 import molecularnodes as mn
@@ -116,6 +118,30 @@ mol.add_style("vdw")
 
 canvas.frame_view(mol, (3.14, 3.14 / 2, 0))
 canvas.snapshot()
+```
+
+## `databpy`
+
+- 'numpy-like' interfaces to attributes on objects
+
+```{.py code-line-numbers="|1-2|4-5|7-9|11-18|"}
+# set the x component for the first 10 verts to 1.0
+obj["position"][:10, 0] = 1.0 
+
+# add 1 to x, 2 to y, 3 to z component of position
+obj["position"] += np.array([1, 2, 3]) 
+
+# infers data types for storage and retrieval
+obj["att_name"] = np.zeros(len(obj), dypte=int)
+obj["att_name"] 
+
+# get and set attributes on non-point domains
+obj.store_named_attribute(
+  data=np.zeros((len(bob), 4, 4), dtype=float),
+  name="a_matrix",
+  domain=db.AttributeDomains.FACE
+  )
+obj.named_attribute()
 ```
 
 # Building on GitHub
@@ -157,11 +183,38 @@ canvas.snapshot()
 - Download and bundle `.whl` files with extension
 - Upload extension to GitHub & Extensions platform
 
+## Testing your Add-ons
+
+::: {.content-visible when-format="revealjs"}
+Check out Spencer's talk on testing add-ons: 
+
+![](./img/semagnumtalk.png){fig-align="center"}
+:::
+
+::: {.content-visible unless-format="revealjs"}
+Checko out Spencer's talk on testing add-ons [here](https://docs.google.com/presentation/d/1fpKdehYaquHgWHV9NeWn7qkTfVRqRJMc7SklBTR4tmc/edit?slide=id.p#slide=id.p).
+
+{{< pdf ./img/semagnumtalk.pdf >}}
+:::
+
+## Anatomy of a GitHub Action
+:::: {.fragment}
+- Runs on hardware managed by GitHub
+  - Free for public projects
+  - Mac / Windows / Linux
+  - Mid-power  machines, no GPU
+::::
+:::: {.fragment}
+- Can use your own hardware as a GHA runner
+  - My PC with an RTX 3090 runs any GPU worklods back in Australia
+::::
+
+
 ## Running Tests
 
 ::: {.bigyaml}
 
-```{.yml code-line-numbers="|3-7|9-16|19|20-22|23-35"}
+```{.yml code-line-numbers="|3-7|9-17|19|20-22|23-35"}
 name: tests
 
 on: 
@@ -181,7 +234,7 @@ jobs:
               os: [ubuntu-latest, macos-latest, windows-latest]
         steps:
             - uses: actions/checkout@v4
-            - uses: BradyAJohnston/setup-blender@v3
+            - uses: BradyAJohnston/setup-blender@v4
               with:
                 version: ${{ matrix.version }}
             - name: Install in Blender
@@ -206,14 +259,10 @@ jobs:
 
 ## Breaking 5.0 Changes
 
-Tests are run daily on MacOS, Windows & Linux against the latest daily alpha builds from Blender.
+Tests are run daily on MacOS, Windows & Linux against the latest alpha builds from Blender.
 
 :::: {.fragment}
 - `BLENDER_EEVEE_NEXT` renamed to `BLENDER_EEVEE` [#855](https://github.com/BradyAJohnston/MolecularNodes/pull/885)
-::::
-
-:::: {.fragment}
-- Slight change in volume -> mesh [#897](https://github.com/BradyAJohnston/MolecularNodes/pull/897)
 ::::
 
 :::: {.fragment}
@@ -222,6 +271,9 @@ Tests are run daily on MacOS, Windows & Linux against the latest daily alpha bui
 
 :::: {.fragment}
 - `Set Curve Resolution` not updating datablock [#141721](https://projects.blender.org/blender/blender/issues/141721#issuecomment-1625189)
+::::
+:::: {.fragment}
+- `bpy.data.materials.new()` starts with empty node tree (not BSDF + Output) [#980](https://github.com/BradyAJohnston/MolecularNodes/pull/980)
 ::::
 
 ::: {.content-visible when-format="revealjs"}
@@ -235,113 +287,38 @@ These were some of the recent changes that were breaking the add-on but automate
 Fixing individual errors as they appear is also _much_ easier to debug than testing once the beta releases happen (or worse the final release) where multiple failures might pile up on top of each other.
 :::
 
-## Anatomy of a GitHub Action
-setup-blender
-build and distribute documentation
+
 
 # Distributing on GitHub
 
-## Distributing your own Extensions
-Details and built: https://bradyajohnston.github.io/extensions/
-Subscribe with:
-
-```bash
-https://bradyajohnston.github.io/extensions/index.json
-```
-
-
-
-## How is it Built?
-
-```yaml
-name: Download Release Files
-
-on:
-  push:
-    branches: ["main"]
-  schedule:
-    - cron: '0 0 * * *'
-
-jobs:
-  build-website:
-    runs-on: macos-14
-    permissions: write-all
-    steps:
-      - uses: actions/checkout@v4
-      - uses: quarto-dev/quarto-actions/setup@v2
-      - uses: bradyajohnston/setup-blender@v2.1
-        with: 
-          version: 4.3.2
-      - name: Install uv
-        uses: astral-sh/setup-uv@v4
-        with:
-            version: "latest"
-    
-      - name: Get Release Assets
-        run: |
-          uv run --with requests scripts/download.py
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-      - name: Generate index.json
-        run: |
-            blender --command extension server-generate --repo-dir=repo
-    
-      - name: Quarto Render
-        run: |
-          uv run --with pyyaml quarto render
-    
-      - name: Publish to GitHub Pages (and render)
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-            target: gh-pages
-            path: .
-            render: false
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
-
-## How is it built?
-
-```yaml
-name: Download Release Files
-
-on:
-  push:
-    branches: ["main"]
-  schedule:
-    - cron: '0 0 * * *'
-
-jobs:
-  build-website:
-    runs-on: macos-14
-    permissions: write-all
-    steps:
-      - uses: bradyajohnston/setup-blender@v2.1
-        with: 
-          version: 4.3.2
-      - name: Get Release Assets
-        run: |
-          uv run --with requests scripts/download.py
-      - name: Generate index.json
-        run: |
-            blender --command extension server-generate --repo-dir=repo
-    
-      - name: Quarto Render
-        run: |
-          uv run --with pyyaml quarto render
-    
-      - name: Publish to GitHub Pages (and render)
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-            target: gh-pages
-            path: .
-            render: false
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
+## 'Old School'
+::: {.fragment}
+- have your add-on be 'top-level' on GitHub - users just download the `.zip` of the repo and install
+:::
+::: {.fragment}
+  - Never clear when updates are out or what version is 'released'
+:::
+::: {.fragment}
+- package up `.zip` and create a GitHub release - users download from release page and check back for updates
+:::
+::: {.fragment}
+  - Clearer which version is currently released, requires users to manually update
+:::
+## Hip & New and Cool and Fresh with 'Extensions'
+::: {.fragment}
+- Host an `index.json` somewhere accessible on the network which points to files, allows automatic updates
+:::
+::: {.fragment}
+- Host an `index.json` and files all on GitHub
+  - Simple index for single add-on on a single repo
+  - A repo that indexes and builds multiple add-ons from multiple sources
+:::
+::: {.fragment}
+:::
+::: {.fragment}
+:::
 
 ## A live example
-
 
 ::: {.content-visible when-format="revealjs"}
 <!-- will only appear in slides -->
@@ -380,6 +357,72 @@ This is a minimal example of an add-on we can subscribe to.
 ::: {.fragment}
 - [bradyajohnston.github.io/extensions](https://bradyajohnston.github.io/extensions)
 :::
+
+
+## How is it Built?
+
+::: {.content-visible unless-format="revealjs"}
+<!-- will only appear in blogpost -->
+We can use GitHub actions (or another similar service) to compile 'released' add-ons from multiple different services into a single extenion repo. 
+
+Importantly we need Blender to run checksum on the actual files that your users will download before publishing the `index.json`. We don't host or serve the actual files ourselves, those remain on at the original publishing locations (the release pages of the individual repos). We just generate an index that points to those locations.
+:::
+
+```{.yaml code-line-numbers="|3-7|11-12|14-22|24-28|29-31|33-44"}
+name: Download Release Files
+
+on:
+  push:
+    branches: ["main"]
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build-website:
+    runs-on: macos-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v4
+      - uses: quarto-dev/quarto-actions/setup@v2
+      - uses: bradyajohnston/setup-blender@v4
+        with: 
+          version: latest
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+            version: "latest"
+    
+      - name: Get Release Assets
+        run: |
+          uv run --with requests scripts/download.py
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: Generate index.json
+        run: |
+          blender --command extension server-generate --repo-dir=repo
+    
+      - name: Quarto Render
+        run: |
+          uv run --with pyyaml quarto render
+    
+      - name: Publish to GitHub Pages (and render)
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+            target: gh-pages
+            path: .
+            render: false
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+## Distributing your own Extensions
+Details and built: https://bradyajohnston.github.io/extensions/
+Subscribe with:
+
+```bash
+https://bradyajohnston.github.io/extensions/index.json
+```
+
 
 
 ## Testing your Add-ons
