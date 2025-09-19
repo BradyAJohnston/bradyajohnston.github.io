@@ -151,7 +151,14 @@
     "href": "talks/bcon2025/slides.html#distributing-your-own-extensions",
     "title": "Extensions on GitHub",
     "section": "Distributing your own Extensions",
-    "text": "Distributing your own Extensions\nDetails and built: https://bradyajohnston.github.io/extensions/ Subscribe with:\n`bash https://bradyajohnston.github.io/extensions/index.json"
+    "text": "Distributing your own Extensions\nDetails and built: https://bradyajohnston.github.io/extensions/ Subscribe with:\nhttps://bradyajohnston.github.io/extensions/index.json"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#blext",
+    "href": "talks/bcon2025/slides.html#blext",
+    "title": "Extensions on GitHub",
+    "section": "Blext",
+    "text": "Blext\n\nPackage for building, maintaining and releasing extensions\ncodeberg.org/so-rose/blext"
   },
   {
     "objectID": "talks/bcon2025/slides.html#thanks",
@@ -284,7 +291,14 @@
     "href": "talks/bcon2025/index.html#distributing-your-own-extensions",
     "title": "Extensions on GitHub",
     "section": "Distributing your own Extensions",
-    "text": "Distributing your own Extensions\nDetails and built: https://bradyajohnston.github.io/extensions/ Subscribe with:\n`bash https://bradyajohnston.github.io/extensions/index.json"
+    "text": "Distributing your own Extensions\nDetails and built: https://bradyajohnston.github.io/extensions/ Subscribe with:\nhttps://bradyajohnston.github.io/extensions/index.json"
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#blext",
+    "href": "talks/bcon2025/index.html#blext",
+    "title": "Extensions on GitHub",
+    "section": "Blext",
+    "text": "Blext\n\nPackage for building, maintaining and releasing extensions\ncodeberg.org/so-rose/blext"
   },
   {
     "objectID": "talks/bcon2025/index.html#thanks",
