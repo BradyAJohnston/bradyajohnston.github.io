@@ -6,6 +6,7 @@ execute:
 
 filters: 
   - embedio
+  - qrcode
 
 website:
   title: "Brady's Blog"

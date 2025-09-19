@@ -2,7 +2,6 @@
 title: Extensions on GitHub
 author: Brady Johnston
 date: 2025-09-19
-draft: true
 toc: true
 toc-depth: 1
 format: 
@@ -10,6 +9,8 @@ format:
     theme: [dracula, theme.scss]
     output-file: slides.html
   html: default
+
+fig-align: center
 
 execute: 
   cache: true
@@ -23,6 +24,15 @@ These slides and accompanying blog post were created for my talk at the 2025 Ble
 See the slides below of click directly on [this link](slides.html).
 
 {{< revealjs "slides.html" >}}
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+## Slides are Available
+
+[bradyajohnston.github.io/talks/bcon2025](https://bradyajohnston.github.io/talks/bcon2025)
+
+{{< qrcode https://bradyajohnston.github.io/talks/bcon2025 height=500 width=500 >}}
 
 :::
 
@@ -67,7 +77,6 @@ Blender knows how to handle vertices and edges. Once we have the data inside of 
 A clathrin protein cage appearing, or summoning a protein via a DNA circle.
 
 :::
-<video src="https://imgur.com/h0taqfP.mp4" width="100%" autoplay controls muted loop></video>
 ::::
 
 ::: {.content-visible when-format="revealjs"}
@@ -120,7 +129,7 @@ canvas.frame_view(mol, (3.14, 3.14 / 2, 0))
 canvas.snapshot()
 ```
 
-## `databpy`
+## [`databpy`](https://github.com/BradyAJohnston/databpy)
 
 - 'numpy-like' interfaces to attributes on objects
 
@@ -421,21 +430,15 @@ Subscribe with:
 
 ```bash
 https://bradyajohnston.github.io/extensions/index.json
-```
+``
 
 
+## Thanks!
 
-## Testing your Add-ons
+- `@bradyajohnston` everywhere
+- slides: [bradyajohnston.githbub.io/talks/bcon2025](https://bradyajohnston.github.io/talks/bcon2025)
 
-::: {.content-visible when-format="revealjs"}
-Check out Spencer's talk on testing add-ons: 
-
-![](./img/spencermtalk.png){fig-align="center"}
-:::
-
-::: {.content-visible unless-format="revealjs"}
-Checko out Spencer's talk on testing add-ons [here](https://docs.google.com/presentation/d/1fpKdehYaquHgWHV9NeWn7qkTfVRqRJMc7SklBTR4tmc/edit?slide=id.p#slide=id.p).
-:::
+{{< qrcode https://bradyajohnston.github.io/talks/bcon2025 width=300 height=300 >}}
 
 
 ::: {.content-visible when-format="revealjs"}
