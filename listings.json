@@ -1,7 +1,9 @@
 [
   {
     "listing": "/talks/index.html",
-    "items": []
+    "items": [
+      "/talks/bcon2025/index.html"
+    ]
   },
   {
     "listing": "/index.html",

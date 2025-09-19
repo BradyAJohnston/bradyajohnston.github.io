@@ -7,6 +7,293 @@
     "text": "I’m Brady and I’m interested in compelling data visualisation. I specialise in biophysics & molecular animation, and created the Molecular Nodes add-on for Blender to help myself and others create easier and better molecular animations.\nI’m a self taught coder & 3D-artist, having picked up both during my PhD in structural biology & biophysics, and now teach others the same on my YouTube Channel.\nCheck out my 2022 Blender conference talk on exactly these topics!"
   },
   {
+    "objectID": "talks/bcon2025/slides.html#slides-are-available",
+    "href": "talks/bcon2025/slides.html#slides-are-available",
+    "title": "Extensions on GitHub",
+    "section": "Slides are Available",
+    "text": "Slides are Available\nbradyajohnston.github.io/talks/bcon2025"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#im-brady",
+    "href": "talks/bcon2025/slides.html#im-brady",
+    "title": "Extensions on GitHub",
+    "section": "I’m Brady!",
+    "text": "I’m Brady!\n\nBiochemist & Biophysicist turned 3D Animator\n2022 talk about Visualising Viruses"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#molecular-nodes",
+    "href": "talks/bcon2025/slides.html#molecular-nodes",
+    "title": "Extensions on GitHub",
+    "section": "Molecular Nodes",
+    "text": "Molecular Nodes\n\n\nImport & Animation of molecular data sets\nBrings data inside of Blender\nBuilds around Geometry Nodes"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#molecular-nodes-1",
+    "href": "talks/bcon2025/slides.html#molecular-nodes-1",
+    "title": "Extensions on GitHub",
+    "section": "Molecular Nodes",
+    "text": "Molecular Nodes"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#install-as-a-python-package",
+    "href": "talks/bcon2025/slides.html#install-as-a-python-package",
+    "title": "Extensions on GitHub",
+    "section": "Install as a python package?",
+    "text": "Install as a python package?\n\n\nAlso built and distributed via pypi.org\n\n\n# !pip install bpy molecularnodes\n\nimport molecularnodes as mn\ncanvas = mn.Canvas(\n    engine=mn.scene.Cycles(samples=16),\n    resolution=(1280, 720),\n    transparent=True\n    )\n\nmol = mn.Molecule.fetch(\"1BNA\")\nmol.add_style(\"vdw\")\n\ncanvas.frame_view(mol, (3.14, 3.14 / 2, 0))\ncanvas.snapshot()"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#install-as-a-python-package-output",
+    "href": "talks/bcon2025/slides.html#install-as-a-python-package-output",
+    "title": "Extensions on GitHub",
+    "section": "Install as a python package?",
+    "text": "Install as a python package?\n\n\n\n\n\n\n\nFigure 1: X-ray crystallography structure of a fragment of DNA."
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#databpy",
+    "href": "talks/bcon2025/slides.html#databpy",
+    "title": "Extensions on GitHub",
+    "section": "databpy",
+    "text": "databpy\n\n‘numpy-like’ interfaces to attributes on objects\n\n# set the x component for the first 10 verts to 1.0\nobj[\"position\"][:10, 0] = 1.0 \n\n# add 1 to x, 2 to y, 3 to z component of position\nobj[\"position\"] += np.array([1, 2, 3]) \n\n# infers data types for storage and retrieval\nobj[\"att_name\"] = np.zeros(len(obj), dypte=int)\nobj[\"att_name\"] \n\n# get and set attributes on non-point domains\nobj.store_named_attribute(\n  data=np.zeros((len(bob), 4, 4), dtype=float),\n  name=\"a_matrix\",\n  domain=db.AttributeDomains.FACE\n  )\nobj.named_attribute()"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#molecular-nodes-on-github",
+    "href": "talks/bcon2025/slides.html#molecular-nodes-on-github",
+    "title": "Extensions on GitHub",
+    "section": "Molecular Nodes on GitHub",
+    "text": "Molecular Nodes on GitHub"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#why-build-on-github",
+    "href": "talks/bcon2025/slides.html#why-build-on-github",
+    "title": "Extensions on GitHub",
+    "section": "Why build on GitHub?",
+    "text": "Why build on GitHub?\n\n\nNot paid at all, just benefited a lot from using it\n\n\n\n\nOther platforms offer similar (CodeBerg etc.) I just have experience with GitHub\n\n\n\n\nFree file hosting (within ‘reason’)\n\n\n\n\nFree compute for automated testing and deployment (public projects)\n\n\n\n\nIncreased visibility (&gt;1,000 ⭐️!)(not guaranteed)"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#building-distributing-mn",
+    "href": "talks/bcon2025/slides.html#building-distributing-mn",
+    "title": "Extensions on GitHub",
+    "section": "Building & Distributing MN",
+    "text": "Building & Distributing MN"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#building-distributing-mn-1",
+    "href": "talks/bcon2025/slides.html#building-distributing-mn-1",
+    "title": "Extensions on GitHub",
+    "section": "Building & Distributing MN",
+    "text": "Building & Distributing MN\n\nRun tests against different versions of Blender (including daily builds)\nRun tests against bpy installed via pip for automated pipelines\nDownload and bundle .whl files with extension\nUpload extension to GitHub & Extensions platform"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#testing-your-add-ons",
+    "href": "talks/bcon2025/slides.html#testing-your-add-ons",
+    "title": "Extensions on GitHub",
+    "section": "Testing your Add-ons",
+    "text": "Testing your Add-ons\nCheck out Spencer’s talk on testing add-ons:"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#anatomy-of-a-github-action",
+    "href": "talks/bcon2025/slides.html#anatomy-of-a-github-action",
+    "title": "Extensions on GitHub",
+    "section": "Anatomy of a GitHub Action",
+    "text": "Anatomy of a GitHub Action\n\n\nRuns on hardware managed by GitHub\n\nFree for public projects\nMac / Windows / Linux\nMid-power machines, no GPU\n\n\n\n\n\nCan use your own hardware as a GHA runner\n\nMy PC with an RTX 3090 runs any GPU worklods back in Australia"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#running-tests",
+    "href": "talks/bcon2025/slides.html#running-tests",
+    "title": "Extensions on GitHub",
+    "section": "Running Tests",
+    "text": "Running Tests\n\nname: tests\n\non: \n    push:\n      branches: [\"main\"]\n    pull_request:\n      branches: [\"*\"]\n    \njobs:\n    blender:\n        runs-on: ${{ matrix.os }}\n        strategy:\n            max-parallel: 4\n            fail-fast: false\n            matrix:\n              version: [\"4.5\", \"daily\"]\n              os: [ubuntu-latest, macos-latest, windows-latest]\n        steps:\n            - uses: actions/checkout@v4\n            - uses: BradyAJohnston/setup-blender@v4\n              with:\n                version: ${{ matrix.version }}\n            - name: Install in Blender\n              run: |\n                blender -b -P tests/python.py -- -m pip install \".[test]\"\n            - name: Run Tests\n              run: |\n                blender -b -P tests/run.py -- -vv tests --cov --cov-report=xml\n    \n            - name: Expose coverage as a CI download \n              uses: actions/upload-artifact@v4\n              if: matrix.os == 'ubuntu-latest' && matrix.version == '4.2.5'\n              with:\n                name: coverage.xml\n                path: coverage.xml\n\n            - name: Upload coverage reports to Codecov\n              if: matrix.os == 'ubuntu-latest'\n              uses: codecov/codecov-action@v3"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#breaking-5.0-changes",
+    "href": "talks/bcon2025/slides.html#breaking-5.0-changes",
+    "title": "Extensions on GitHub",
+    "section": "Breaking 5.0 Changes",
+    "text": "Breaking 5.0 Changes\nTests are run daily on MacOS, Windows & Linux against the latest alpha builds from Blender.\n\n\nBLENDER_EEVEE_NEXT renamed to BLENDER_EEVEE #855\n\n\n\n\nCompositor no longer has use_nodes #971\n\n\n\n\nSet Curve Resolution not updating datablock #141721\n\n\n\n\nbpy.data.materials.new() starts with empty node tree (not BSDF + Output) #980"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#old-school",
+    "href": "talks/bcon2025/slides.html#old-school",
+    "title": "Extensions on GitHub",
+    "section": "‘Old School’",
+    "text": "‘Old School’\n\n\nhave your add-on be ‘top-level’ on GitHub - users just download the .zip of the repo and install\n\n\n\n\nNever clear when updates are out or what version is ‘released’\n\n\n\n\npackage up .zip and create a GitHub release - users download from release page and check back for updates\n\n\n\n\nClearer which version is currently released, requires users to manually update"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#hip-new-and-cool-and-fresh-with-extensions",
+    "href": "talks/bcon2025/slides.html#hip-new-and-cool-and-fresh-with-extensions",
+    "title": "Extensions on GitHub",
+    "section": "Hip & New and Cool and Fresh with ‘Extensions’",
+    "text": "Hip & New and Cool and Fresh with ‘Extensions’\n\n\nHost an index.json somewhere accessible on the network which points to files, allows automatic updates\n\n\n\n\nHost an index.json and files all on GitHub\n\nSimple index for single add-on on a single repo\nA repo that indexes and builds multiple add-ons from multiple sources"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#a-live-example",
+    "href": "talks/bcon2025/slides.html#a-live-example",
+    "title": "Extensions on GitHub",
+    "section": "A live example",
+    "text": "A live example\n\ngithub.com/BradyAJohnston/monkeymadness\n\n\n\n\n\n\n\nFigure 2: The hottest new monkey-spawning add-on! (But is there a bug?)"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#your-personal-extensions-repo",
+    "href": "talks/bcon2025/slides.html#your-personal-extensions-repo",
+    "title": "Extensions on GitHub",
+    "section": "Your Personal Extensions Repo",
+    "text": "Your Personal Extensions Repo\n\n\nBuild and release add-ons on GitHub (through automations!) in their own repos\n\n\n\n\nCompile multiple add-ons in a single subscribeable repo\n\n\n\n\nUsers add ‘your personal repo’ - they get updates just like they would from the official Extensions platform\n\n\n\n\nbradyajohnston.github.io/extensions"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#how-is-it-built",
+    "href": "talks/bcon2025/slides.html#how-is-it-built",
+    "title": "Extensions on GitHub",
+    "section": "How is it Built?",
+    "text": "How is it Built?\nname: Download Release Files\n\non:\n  push:\n    branches: [\"main\"]\n  schedule:\n    - cron: '0 0 * * *'\n\njobs:\n  build-website:\n    runs-on: macos-latest\n    permissions: write-all\n    steps:\n      - uses: actions/checkout@v4\n      - uses: quarto-dev/quarto-actions/setup@v2\n      - uses: bradyajohnston/setup-blender@v4\n        with: \n          version: latest\n      - name: Install uv\n        uses: astral-sh/setup-uv@v4\n        with:\n            version: \"latest\"\n    \n      - name: Get Release Assets\n        run: |\n          uv run --with requests scripts/download.py\n        env:\n          GITHUB_TOKEN: ${{ github.token }}\n      - name: Generate index.json\n        run: |\n          blender --command extension server-generate --repo-dir=repo\n    \n      - name: Quarto Render\n        run: |\n          uv run --with pyyaml quarto render\n    \n      - name: Publish to GitHub Pages (and render)\n        uses: quarto-dev/quarto-actions/publish@v2\n        with:\n            target: gh-pages\n            path: .\n            render: false\n        env:\n            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#distributing-your-own-extensions",
+    "href": "talks/bcon2025/slides.html#distributing-your-own-extensions",
+    "title": "Extensions on GitHub",
+    "section": "Distributing your own Extensions",
+    "text": "Distributing your own Extensions\nDetails and built: https://bradyajohnston.github.io/extensions/ Subscribe with:\n`bash https://bradyajohnston.github.io/extensions/index.json"
+  },
+  {
+    "objectID": "talks/bcon2025/slides.html#thanks",
+    "href": "talks/bcon2025/slides.html#thanks",
+    "title": "Extensions on GitHub",
+    "section": "Thanks!",
+    "text": "Thanks!\n\n@bradyajohnston everywhere\nslides: bradyajohnston.githbub.io/talks/bcon2025"
+  },
+  {
+    "objectID": "talks/bcon2025/index.html",
+    "href": "talks/bcon2025/index.html",
+    "title": "Extensions on GitHub",
+    "section": "",
+    "text": "These slides and accompanying blog post were created for my talk at the 2025 Blender conference.\nSee the slides below of click directly on this link.\nView slides in full screen"
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#im-brady",
+    "href": "talks/bcon2025/index.html#im-brady",
+    "title": "Extensions on GitHub",
+    "section": "I’m Brady!",
+    "text": "I’m Brady!"
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#molecular-nodes",
+    "href": "talks/bcon2025/index.html#molecular-nodes",
+    "title": "Extensions on GitHub",
+    "section": "Molecular Nodes",
+    "text": "Molecular Nodes\n\nThis hasn’t been the first attempt at bringing molecular data sets into Blender, but I blieve it has so far been the most successful. In a very short summary, we can think of atoms and molecules as a collection of vertices and edges. Blender knows how to handle vertices and edges. Once we have the data inside of Blender (along with a large number of ‘molecular’ attributes for points and edges) then the full power of Geometry Nodes is at our fingertips for molecular visualisation.\n\n\n\n\n\n\n\nFigure 1: A clathrin protein cage appearing, or summoning a protein via a DNA circle."
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#install-as-a-python-package",
+    "href": "talks/bcon2025/index.html#install-as-a-python-package",
+    "title": "Extensions on GitHub",
+    "section": "Install as a python package?",
+    "text": "Install as a python package?\n\nIt’s less likely than you’d think!\n\nCreating an add-on for Blender that can also be built and shipping as a python package was quite the task. It leads to a variety of problems and strange engineering issues that come with writing code for Blender that a ‘regular’ python package wouldn’t have to deal with.\nCovering that topic with all of our learnings would be a massive blog post itself. The short version is that you can install molecularnodes from pypi and use if for molecular rendering in python scripts of jupyter notebooks like this one.\n\n# !pip install bpy molecularnodes\n\nimport molecularnodes as mn\ncanvas = mn.Canvas(\n    engine=mn.scene.Cycles(samples=16),\n    resolution=(1280, 720),\n    transparent=True\n    )\n\nmol = mn.Molecule.fetch(\"1BNA\")\nmol.add_style(\"vdw\")\n\ncanvas.frame_view(mol, (3.14, 3.14 / 2, 0))\ncanvas.snapshot()\n\n\n\n\n\n\n\nFigure 2: X-ray crystallography structure of a fragment of DNA."
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#databpy",
+    "href": "talks/bcon2025/index.html#databpy",
+    "title": "Extensions on GitHub",
+    "section": "databpy",
+    "text": "databpy\n\n‘numpy-like’ interfaces to attributes on objects\n\n# set the x component for the first 10 verts to 1.0\nobj[\"position\"][:10, 0] = 1.0 \n\n# add 1 to x, 2 to y, 3 to z component of position\nobj[\"position\"] += np.array([1, 2, 3]) \n\n# infers data types for storage and retrieval\nobj[\"att_name\"] = np.zeros(len(obj), dypte=int)\nobj[\"att_name\"] \n\n# get and set attributes on non-point domains\nobj.store_named_attribute(\n  data=np.zeros((len(bob), 4, 4), dtype=float),\n  name=\"a_matrix\",\n  domain=db.AttributeDomains.FACE\n  )\nobj.named_attribute()"
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#why-build-on-github",
+    "href": "talks/bcon2025/index.html#why-build-on-github",
+    "title": "Extensions on GitHub",
+    "section": "Why build on GitHub?",
+    "text": "Why build on GitHub?"
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#building-distributing-mn",
+    "href": "talks/bcon2025/index.html#building-distributing-mn",
+    "title": "Extensions on GitHub",
+    "section": "Building & Distributing MN",
+    "text": "Building & Distributing MN"
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#building-distributing-mn-1",
+    "href": "talks/bcon2025/index.html#building-distributing-mn-1",
+    "title": "Extensions on GitHub",
+    "section": "Building & Distributing MN",
+    "text": "Building & Distributing MN\n\nRun tests against different versions of Blender (including daily builds)\nRun tests against bpy installed via pip for automated pipelines\nDownload and bundle .whl files with extension\nUpload extension to GitHub & Extensions platform"
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#testing-your-add-ons",
+    "href": "talks/bcon2025/index.html#testing-your-add-ons",
+    "title": "Extensions on GitHub",
+    "section": "Testing your Add-ons",
+    "text": "Testing your Add-ons\nChecko out Spencer’s talk on testing add-ons here.\n  Download PDF File\n   \n    Unable to display PDF file. Download instead."
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#anatomy-of-a-github-action",
+    "href": "talks/bcon2025/index.html#anatomy-of-a-github-action",
+    "title": "Extensions on GitHub",
+    "section": "Anatomy of a GitHub Action",
+    "text": "Anatomy of a GitHub Action\n\n\nRuns on hardware managed by GitHub\n\nFree for public projects\nMac / Windows / Linux\nMid-power machines, no GPU\n\n\n\n\n\nCan use your own hardware as a GHA runner\n\nMy PC with an RTX 3090 runs any GPU worklods back in Australia"
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#running-tests",
+    "href": "talks/bcon2025/index.html#running-tests",
+    "title": "Extensions on GitHub",
+    "section": "Running Tests",
+    "text": "Running Tests\n\nname: tests\n\non: \n    push:\n      branches: [\"main\"]\n    pull_request:\n      branches: [\"*\"]\n    \njobs:\n    blender:\n        runs-on: ${{ matrix.os }}\n        strategy:\n            max-parallel: 4\n            fail-fast: false\n            matrix:\n              version: [\"4.5\", \"daily\"]\n              os: [ubuntu-latest, macos-latest, windows-latest]\n        steps:\n            - uses: actions/checkout@v4\n            - uses: BradyAJohnston/setup-blender@v4\n              with:\n                version: ${{ matrix.version }}\n            - name: Install in Blender\n              run: |\n                blender -b -P tests/python.py -- -m pip install \".[test]\"\n            - name: Run Tests\n              run: |\n                blender -b -P tests/run.py -- -vv tests --cov --cov-report=xml\n    \n            - name: Expose coverage as a CI download \n              uses: actions/upload-artifact@v4\n              if: matrix.os == 'ubuntu-latest' && matrix.version == '4.2.5'\n              with:\n                name: coverage.xml\n                path: coverage.xml\n\n            - name: Upload coverage reports to Codecov\n              if: matrix.os == 'ubuntu-latest'\n              uses: codecov/codecov-action@v3"
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#breaking-5.0-changes",
+    "href": "talks/bcon2025/index.html#breaking-5.0-changes",
+    "title": "Extensions on GitHub",
+    "section": "Breaking 5.0 Changes",
+    "text": "Breaking 5.0 Changes\nTests are run daily on MacOS, Windows & Linux against the latest alpha builds from Blender.\n\n\nBLENDER_EEVEE_NEXT renamed to BLENDER_EEVEE #855\n\n\n\n\nCompositor no longer has use_nodes #971\n\n\n\n\nSet Curve Resolution not updating datablock #141721\n\n\n\n\nbpy.data.materials.new() starts with empty node tree (not BSDF + Output) #980\n\n\n\nThese were some of the recent changes that were breaking the add-on but automated testing alterted us and we were able to fix it quickly. When 5.0 is released as long as we keep fixing the problems as they appear we can be confident that it will work day-of.\nFixing individual errors as they appear is also much easier to debug than testing once the beta releases happen (or worse the final release) where multiple failures might pile up on top of each other."
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#old-school",
+    "href": "talks/bcon2025/index.html#old-school",
+    "title": "Extensions on GitHub",
+    "section": "‘Old School’",
+    "text": "‘Old School’\n\n\nhave your add-on be ‘top-level’ on GitHub - users just download the .zip of the repo and install\n\n\n\n\nNever clear when updates are out or what version is ‘released’\n\n\n\n\npackage up .zip and create a GitHub release - users download from release page and check back for updates\n\n\n\n\nClearer which version is currently released, requires users to manually update"
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#hip-new-and-cool-and-fresh-with-extensions",
+    "href": "talks/bcon2025/index.html#hip-new-and-cool-and-fresh-with-extensions",
+    "title": "Extensions on GitHub",
+    "section": "Hip & New and Cool and Fresh with ‘Extensions’",
+    "text": "Hip & New and Cool and Fresh with ‘Extensions’\n\n\nHost an index.json somewhere accessible on the network which points to files, allows automatic updates\n\n\n\n\nHost an index.json and files all on GitHub\n\nSimple index for single add-on on a single repo\nA repo that indexes and builds multiple add-ons from multiple sources"
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#a-live-example",
+    "href": "talks/bcon2025/index.html#a-live-example",
+    "title": "Extensions on GitHub",
+    "section": "A live example",
+    "text": "A live example\n\n\n\n\n\n\n\nFigure 3: The hottest new monkey-spawning add-on! (But is there a bug?)\n\n\n\n\nThis is a minimal example of an add-on we can subscribe to."
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#your-personal-extensions-repo",
+    "href": "talks/bcon2025/index.html#your-personal-extensions-repo",
+    "title": "Extensions on GitHub",
+    "section": "Your Personal Extensions Repo",
+    "text": "Your Personal Extensions Repo\n\n\nBuild and release add-ons on GitHub (through automations!) in their own repos\n\n\n\n\nCompile multiple add-ons in a single subscribeable repo\n\n\n\n\nUsers add ‘your personal repo’ - they get updates just like they would from the official Extensions platform\n\n\n\n\nbradyajohnston.github.io/extensions"
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#how-is-it-built",
+    "href": "talks/bcon2025/index.html#how-is-it-built",
+    "title": "Extensions on GitHub",
+    "section": "How is it Built?",
+    "text": "How is it Built?\n\nWe can use GitHub actions (or another similar service) to compile ‘released’ add-ons from multiple different services into a single extenion repo.\nImportantly we need Blender to run checksum on the actual files that your users will download before publishing the index.json. We don’t host or serve the actual files ourselves, those remain on at the original publishing locations (the release pages of the individual repos). We just generate an index that points to those locations.\nname: Download Release Files\n\non:\n  push:\n    branches: [\"main\"]\n  schedule:\n    - cron: '0 0 * * *'\n\njobs:\n  build-website:\n    runs-on: macos-latest\n    permissions: write-all\n    steps:\n      - uses: actions/checkout@v4\n      - uses: quarto-dev/quarto-actions/setup@v2\n      - uses: bradyajohnston/setup-blender@v4\n        with: \n          version: latest\n      - name: Install uv\n        uses: astral-sh/setup-uv@v4\n        with:\n            version: \"latest\"\n    \n      - name: Get Release Assets\n        run: |\n          uv run --with requests scripts/download.py\n        env:\n          GITHUB_TOKEN: ${{ github.token }}\n      - name: Generate index.json\n        run: |\n          blender --command extension server-generate --repo-dir=repo\n    \n      - name: Quarto Render\n        run: |\n          uv run --with pyyaml quarto render\n    \n      - name: Publish to GitHub Pages (and render)\n        uses: quarto-dev/quarto-actions/publish@v2\n        with:\n            target: gh-pages\n            path: .\n            render: false\n        env:\n            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#distributing-your-own-extensions",
+    "href": "talks/bcon2025/index.html#distributing-your-own-extensions",
+    "title": "Extensions on GitHub",
+    "section": "Distributing your own Extensions",
+    "text": "Distributing your own Extensions\nDetails and built: https://bradyajohnston.github.io/extensions/ Subscribe with:\n`bash https://bradyajohnston.github.io/extensions/index.json"
+  },
+  {
+    "objectID": "talks/bcon2025/index.html#thanks",
+    "href": "talks/bcon2025/index.html#thanks",
+    "title": "Extensions on GitHub",
+    "section": "Thanks!",
+    "text": "Thanks!\n\n@bradyajohnston everywhere\nslides: bradyajohnston.githbub.io/talks/bcon2025"
+  },
+  {
     "objectID": "molecular-nodes.html",
     "href": "molecular-nodes.html",
     "title": "Molecular Nodes",
@@ -172,7 +459,7 @@
     "href": "talks/index.html",
     "title": "Talks",
     "section": "",
-    "text": "Slides for talks that I give will go here in the future.\n\n\n\n\nNo matching items"
+    "text": "Slides for talks that I give will go here in the future.\n\n\n\n\n\n\n\n\nExtensions on GitHub\n\n\n\n\n\n\nBrady Johnston\n\n\nSep 19, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
