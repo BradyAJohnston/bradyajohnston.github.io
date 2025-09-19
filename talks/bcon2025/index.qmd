@@ -430,7 +430,15 @@ Subscribe with:
 
 ```bash
 https://bradyajohnston.github.io/extensions/index.json
-``
+```
+
+## Blext
+
+- Package for building, maintaining and releasing extensions
+
+- [codeberg.org/so-rose/blext](https://codeberg.org/so-rose/blext)
+
+{{< qrcode https://codeberg.org/so-rose/blext width=300 height=300 >}}
 
 
 ## Thanks!
