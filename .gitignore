@@ -4,3 +4,4 @@
 **/*.quarto_ipynb
 /docs
 /_site
+/talks/mdaugm2025/.jupyter_cache

@@ -12,3 +12,8 @@ dependencies = [
     "pyyaml>=6.0.2",
     "quarto-cli>=1.8.24",
 ]
+
+[tool.uv.workspace]
+members = [
+    "talks/mdaugm2025",
+]
